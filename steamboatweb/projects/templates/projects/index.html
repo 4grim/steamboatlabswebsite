@@ -1,0 +1,22 @@
+{% extends 'projects/base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+	<div class='featured_projects'>
+		<ul>
+		{% for project in projects_featured_list %}
+			<li>
+				{% if project.company_logo %}
+					<img src="{{ project.company_logo.url }}" height="100" width="100">
+				{% endif %}
+				<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+
+	<div class='container'>
+		<p>here there will be other content</p>
+	</div>
+{% endblock %}
