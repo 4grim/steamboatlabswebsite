@@ -12,22 +12,39 @@
   </head>
   <body>
     <!-- Nav bar and Company logo -->
-	<div class="row">
-		<div class="small-6 columns">
-			<a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
-		</div>
-		<div class="small-5 columns">
-			<a href="{% url 'project_index' %}" class="small button">Projects</a>
-			<a href="#" class="small button">About</a>
-			<a href="{% url 'contact' %}" class="small button">Contact</a>
-		</div>
-		<div class ="small-1 columns">
-			<a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
-		</div>
-	</div>
+    <section id="nav_bar">
+      <div class="row">
+        <div class="small-6 columns">
+			   <a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
+		    </div>
+		    <div class="small-5 columns">
+			   <a href="{% url 'project_index' %}" class="small button">Projects</a>
+			   <a href="{% url 'about' %}" class="small button">About</a>
+			   <a href="{% url 'contact' %}" class="small button">Contact</a>
+		    </div>
+		    <div class ="small-1 columns">
+			   <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
+		    </div>
+	   </div>
+   </section>
 
+   <section id="body">
     {% block body_block %}
-	{% endblock %}
+    {% endblock %}
+  </section>
+
+  <section id="footer">
+    <div class="row">
+      <hr></hr>
+      <div class="large-6 columns">
+        <p>&copy; 2014 Steamboat Labs, LLC</p>
+      </div>
+      <div class="large-6 columns">
+        <p class="text-right"><a href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
+      </div>
+    </div>
+  </section>
+
 
     <script src="{% static 'projects/js/vendor/jquery.js' %}"></script>
     <!-- below imports all js libraries, can edit with only the essentials if needed and too slow -->

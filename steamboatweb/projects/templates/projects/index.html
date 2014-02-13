@@ -15,7 +15,7 @@
 		</div>
 	</div>
 
-	<!-- Feature Projects Section -->
+<section id="feature_projects">
 	<div class="row">
 		<div class="small-12 columns">
 			<div class="panel">
@@ -25,7 +25,7 @@
 					<br>
 
 					{% for project in projects_featured_list %}
-					<div class="large-4 medium-4 columns">
+					<div id="project" class="large-4 medium-4 columns">
 						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
 						{% if project.company_logo %}
 						<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
@@ -37,5 +37,5 @@
 			</div>
 		</div>
 	</div>
-
+</section>
 {% endblock %}

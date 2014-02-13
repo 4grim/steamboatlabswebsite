@@ -14,31 +14,34 @@
 	</div>
 
 	<!-- Project List -->
-	<div class="row">
-		<div class="large-12 columns">
-		<div class="panel">
+	<section id="project_index">
 		<div class="row">
-		{% for project in project_list %}
-			{% if project.company_logo %}
-				<div class="small-2 columns">
-					<img src="{{ project.company_logo.url }}" height="100" width="100">
-				</div>
-				<div class="small-10 columns">
-					<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-					<p>{{ project.project_start}} - {{ project.project_end }}</p>
-					<p>{{ project.technologies }}</p>
-				</div>
-			{% else %}
-				<div class="small-12 columns">
-					<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-					<p>{{ project.project_start}} - {{ project.project_end }}</p>
-					<p>{{ project.technologies }}</p>
-				</div>
-			{% endif %}
-		{% endfor %}
+			<div class="large-12 columns">
+			<div class="panel">
+			<div class="row">
+			{% for project in project_list %}
+				{% if project.company_logo %}
+					<div class="small-2 columns">
+						<img src="{{ project.company_logo.url }}" height="100" width="100">
+					</div>
+					<div class="small-10 columns">
+						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+						<p>{{ project.project_start}} - {{ project.project_end }}</p>
+						<p>{{ project.technologies }}</p>
+					</div>
+				{% else %}
+					<div class="small-12 columns">
+						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+						<p>{{ project.project_start}} - {{ project.project_end }}</p>
+						<p>{{ project.technologies }}</p>
+					</div>
+				{% endif %}
+				<hr></hr>
+			{% endfor %}
+			</div>
+			</div>
+			</div>
 		</div>
-		</div>
-		</div>
-	</div>
+	</section>
 
 {% endblock %}
