@@ -5,25 +5,40 @@
 {% block title %} - Projects{% endblock%}
 
 {% block body_block %}
-	<h1>Steamboat Labs Projects</h1>
-	<br>
-	<div class='container_capabilities'>
-		<h2>Steamboat Labs is a full service consultancy and has the ability to advise on development strategy as well as complete, full stack implementations using a variety of technologies. Below is a list of our projects.</h2>
+
+	<!-- Steamboat capabilities -->
+	<div class="row">
+		<div class='large-12 columns'>
+			<h3>Steamboat Labs is a full service consultancy and has the ability to advise on development strategy as well as complete, full stack implementations using a variety of technologies. Below is a list of our projects.</h3>
+		</div>
 	</div>
-	
-	<div class='project_list'>
-		<ul>
-			{% for project in project_list %}
-				<li>
-					{% if project.company_logo %}
-						<img src="{{ project.company_logo.url }}" height="100" width="100">
-					{% endif %}
+
+	<!-- Project List -->
+	<div class="row">
+		<div class="large-12 columns">
+		<div class="panel">
+		<div class="row">
+		{% for project in project_list %}
+			{% if project.company_logo %}
+				<div class="small-2 columns">
+					<img src="{{ project.company_logo.url }}" height="100" width="100">
+				</div>
+				<div class="small-10 columns">
 					<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-				</li>
-				<p>{{ project.project_start}} - {{ project.project_end }}</p>
-				<p>{{ project.technologies }}</p>
-			{% endfor %}
-		</ul>
+					<p>{{ project.project_start}} - {{ project.project_end }}</p>
+					<p>{{ project.technologies }}</p>
+				</div>
+			{% else %}
+				<div class="small-12 columns">
+					<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+					<p>{{ project.project_start}} - {{ project.project_end }}</p>
+					<p>{{ project.technologies }}</p>
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+		</div>
+		</div>
 	</div>
 
 {% endblock %}

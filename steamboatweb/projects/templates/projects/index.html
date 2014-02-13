@@ -3,20 +3,39 @@
 {% load staticfiles %}
 
 {% block body_block %}
-	<div class='featured_projects'>
-		<ul>
-		{% for project in projects_featured_list %}
-			<li>
-				{% if project.company_logo %}
-					<img src="{{ project.company_logo.url }}" height="100" width="100">
-				{% endif %}
-				<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-			</li>
-		{% endfor %}
-		</ul>
+
+	<!-- Unknown Content Section -->
+	<div class="row">
+		<div class="small-12 columns">
+			<div class='container'>
+				<h2>Information</h2>
+
+				<p>klfnnsdfnb;kdsfn ;bsndf gnsdfls dbfgabkjfb ljkabjkl adfjkn jknaknd jknal kjfv kjshc sdkjfhaepoifo vsdbfbv skjdfgiuayge akfjhakfg akfaoepoaf alflahfiua fahfuiahfi afjaoifjeoa fakjhfuagf afhaiufh</p>
+			</div>
+		</div>
 	</div>
 
-	<div class='container'>
-		<p>here there will be other content</p>
+	<!-- Feature Projects Section -->
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="panel">
+				<div class="row">
+
+					<h2>Feature Projects</h2>
+					<br>
+
+					{% for project in projects_featured_list %}
+					<div class="large-4 medium-4 columns">
+						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+						{% if project.company_logo %}
+						<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
+						{% endif %}
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
 	</div>
+
 {% endblock %}

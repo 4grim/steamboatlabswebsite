@@ -1,11 +1,39 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Steamboat Labs{% block title %}{% endblock %}</title>
-	</head>
-	
-	<body>
-		{% block body_block %}
-		{% endblock %}
-	</body>
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steamboat Labs{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'projects/css/foundation.css' %}" />
+    <script src="{% static 'projects/js/vendor/modernizr.js' %}"></script>
+  </head>
+  <body>
+    <!-- Nav bar and Company logo -->
+	<div class="row">
+		<div class="small-6 columns">
+			<a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
+		</div>
+		<div class="small-5 columns">
+			<a href="{% url 'project_index' %}" class="small button">Projects</a>
+			<a href="#" class="small button">About</a>
+			<a href="{% url 'contact' %}" class="small button">Contact</a>
+		</div>
+		<div class ="small-1 columns">
+			<a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
+		</div>
+	</div>
+
+    {% block body_block %}
+	{% endblock %}
+
+    <script src="{% static 'projects/js/vendor/jquery.js' %}"></script>
+    <!-- below imports all js libraries, can edit with only the essentials if needed and too slow -->
+    <script src="{% static 'projects/js/foundation.min.js' %}"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
 </html>

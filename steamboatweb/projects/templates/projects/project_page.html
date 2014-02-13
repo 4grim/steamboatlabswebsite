@@ -5,38 +5,56 @@
 {% block title %} - {{ project.title }}{% endblock %}
 
 {% block body_block %}
-	<h1>{{ project.title }}</h1>
-	
-	<h2 class='duration'>
-		<p>{{ project.project_start }} through {{ project.project_end }}</p>
-	</h2>
-	
-	<h2 class='technologies'>
-		Technologies employed: {{ project.technologies }}
-	</h2>
 
-	<h3 class='description'>
-		{{ project.description }}
-	</h3>
-
-	<h3 class='accomplishments'>
-		Accomplishments: {{ project.accomplishments }}
-	</h3>
-
-	<div class='client_information'>
-		{% if project.company_logo %}
-			<a href="{{ project.company_website }}"><img src="{{ project.company_logo.url }}" height="100" width="100"> 
-			{{ project.company_name }}</a>
-		{% else %}
-			<p><a href="{{ project.company_website }}">{{project.company_name }}<a></p>
-		{% endif %}
+	<div class="row">
+		<div class="small-12 columns">
+			<!-- Project Title -->
+			<div class="row">
+				<div class="small-12 columns">
+					<h1>{{ project.title }}</h1>
+				</div>
+			</div>
+			<!-- Client Info -->
+			<div class="row">
+				<div class="small-12 columns">
+					<p><a href="{{ project.company_website }}">{{project.company_name }}</a> - {{ project.project_start }} through {{ project.project_end }}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div class='project_pictures_container'>
-		{% for image in project_images.all %}
-			<a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}" height="100" width="100"></a>
-		{% endfor %}
+	<!-- Project Info -->
+	<div class="row">
+		<!-- Description -->
+		<div class="large-9 columns">
+		<div class="panel">
+			<div class="row">
+				<div class="small-12 columns">
+					{{ project.description }}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-6 columns">
+					<p><h4>Technologies employed:</h4><br>{{ project.technologies }}</p>
+				</div>
+				<div class="small-6 columns">
+					<p><h4>Accomplishments:</h4><br>{{ project.accomplishments }}</p>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- Project Photos -->
+		<div class="large-3 columns">
+			<div class='project_pictures_container'>
+			{% for image in project_images.all %}
+				<p><a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}" height="100" width="100"></a></p>
+			{% endfor %}
+			</div>
+		</div>
+
 	</div>
+
 	
 
 {% endblock %}
