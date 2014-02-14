@@ -7,17 +7,22 @@
 {% block body_block %}
 
 	<div class="row">
-		<div class="small-12 columns">
+		<div class="large-12 columns">
 			<!-- Project Title -->
 			<div class="row">
-				<div class="small-12 columns">
+				<div class="large-12 columns">
 					<h1>{{ project.title }}</h1>
 				</div>
 			</div>
-			<!-- Client Info -->
+			<!-- Duration -->
 			<div class="row">
-				<div class="small-12 columns">
-					<p><a href="{{ project.company_website }}">{{project.company_name }}</a> - {{ project.project_start }} through {{ project.project_end }}</p>
+				<div class="large-12 columns">
+					<p>{{ project.project_start }} through {{ project.project_end }}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<p><a href="{{ client.company_website }}">{{ client.company_name }}</a></p>
 				</div>
 			</div>
 		</div>
@@ -35,10 +40,10 @@
 			</div>
 
 			<div class="row">
-				<div class="small-6 columns">
+				<div class="large-6 columns">
 					<p><h4>Technologies employed:</h4><br>{{ project.technologies }}</p>
 				</div>
-				<div class="small-6 columns">
+				<div class="large-6 columns">
 					<p><h4>Accomplishments:</h4><br>{{ project.accomplishments }}</p>
 				</div>
 			</div>

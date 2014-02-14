@@ -38,4 +38,29 @@
 		</div>
 	</div>
 </section>
+
+<section id="credentials">
+	<div class="row">
+		{% if testimonials %}	
+			<div class="large-6 columns testimonials">
+				<div class="panel left">
+					{% for testimonial in testimonials %}
+						<p>{{ testimonial }}</p>
+					{% endfor %}
+				</div>
+			</div>
+			<div id="team" class="large-6 columns">
+				<div class="panel">
+					<h3 align="center"><a href='#'>Meet the Team</a></h3>
+				</div>
+			</div>
+		{% else %}
+			<div id="team" class="large-12 columns">
+				<div class="panel">
+					meet the team
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</section>
 {% endblock %}

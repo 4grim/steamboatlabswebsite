@@ -1,4 +1,4 @@
 from django.contrib import admin
-from contacts.models import Contact
+from contact.models import Contact
 
 admin.site.register(Contact)

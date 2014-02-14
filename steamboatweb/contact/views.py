@@ -2,15 +2,15 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
-from contacts.models import Contact
-from contacts.forms import ContactForm
+from contact.models import Contact
+from contact.forms import ContactForm
 
 def contact_index(request):
 	#uneccessary
 	contacts = Contact.objects.all()
 	context = {'contacts': contacts}
 
-	return render(request, 'contacts/contact_index.html', context)
+	return render(request, 'contact/contact_index.html', context)
 
 def contact(request):
 	if request.method == 'POST':
@@ -28,11 +28,11 @@ def contact(request):
 			message = form.save()
 			message
 			message_id = message.id
-			url = '/contacts/contact/thanks/' + str(message_id)
+			url = '/contact/thanks/' + str(message_id)
 			return HttpResponseRedirect(url)
 	else:
 		form = ContactForm()
-		return render(request, 'contacts/contact_form.html', {'form': form})	
+		return render(request, 'contact/contact_form.html', {'form': form})	
 
 def contact_submitted(request, message_id):
 	#takes a primary key to fetch the ontact obj and pass to the template
@@ -48,7 +48,7 @@ def contact_submitted(request, message_id):
 		[message.email],
 		)
 
-	return render(request, 'contacts/contact_submitted.html', context)
+	return render(request, 'contact/contact_submitted.html', context)
 
 
 

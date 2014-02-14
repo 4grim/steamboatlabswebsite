@@ -17,6 +17,16 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'projects', ['ProjectImage'])
 
+        # Adding model 'Client'
+        db.create_table(u'projects_client', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('company_name', self.gf('django.db.models.fields.CharField')(default='', max_length=200)),
+            ('company_logo', self.gf('django.db.models.fields.files.ImageField')(default='', max_length=100, blank=True)),
+            ('company_website', self.gf('django.db.models.fields.URLField')(default='', max_length=200, blank=True)),
+            ('testimonial', self.gf('django.db.models.fields.TextField')()),
+        ))
+        db.send_create_signal(u'projects', ['Client'])
+
         # Adding model 'Project'
         db.create_table(u'projects_project', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -24,12 +34,10 @@ class Migration(SchemaMigration):
             ('project_start', self.gf('django.db.models.fields.DateField')()),
             ('project_end', self.gf('django.db.models.fields.DateField')()),
             ('description', self.gf('django.db.models.fields.TextField')()),
-            ('company_name', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('company_logo', self.gf('django.db.models.fields.files.ImageField')(max_length=100, blank=True)),
-            ('company_website', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
             ('technologies', self.gf('django.db.models.fields.TextField')()),
             ('accomplishments', self.gf('django.db.models.fields.TextField')()),
             ('feature_project', self.gf('django.db.models.fields.BooleanField')()),
+            ('client', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['projects.Client'])),
         ))
         db.send_create_signal(u'projects', ['Project'])
 
@@ -47,6 +55,9 @@ class Migration(SchemaMigration):
         # Deleting model 'ProjectImage'
         db.delete_table(u'projects_projectimage')
 
+        # Deleting model 'Client'
+        db.delete_table(u'projects_client')
+
         # Deleting model 'Project'
         db.delete_table(u'projects_project')
 
@@ -55,12 +66,18 @@ class Migration(SchemaMigration):
 
 
     models = {
+        u'projects.client': {
+            'Meta': {'object_name': 'Client'},
+            'company_logo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'blank': 'True'}),
+            'company_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
+            'company_website': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'testimonial': ('django.db.models.fields.TextField', [], {})
+        },
         u'projects.project': {
             'Meta': {'object_name': 'Project'},
             'accomplishments': ('django.db.models.fields.TextField', [], {}),
-            'company_logo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
-            'company_name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'company_website': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
+            'client': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['projects.Client']"}),
             'description': ('django.db.models.fields.TextField', [], {}),
             'feature_project': ('django.db.models.fields.BooleanField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),

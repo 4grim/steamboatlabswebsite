@@ -8,8 +8,8 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'GeneralContact'
-        db.create_table(u'contacts_generalcontact', (
+        # Adding model 'Contact'
+        db.create_table(u'contact_contact', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('first_name', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('last_name', self.gf('django.db.models.fields.CharField')(max_length=50)),
@@ -18,17 +18,17 @@ class Migration(SchemaMigration):
             ('subject', self.gf('django.db.models.fields.CharField')(max_length=200)),
             ('message', self.gf('django.db.models.fields.TextField')()),
         ))
-        db.send_create_signal(u'contacts', ['GeneralContact'])
+        db.send_create_signal(u'contact', ['Contact'])
 
 
     def backwards(self, orm):
-        # Deleting model 'GeneralContact'
-        db.delete_table(u'contacts_generalcontact')
+        # Deleting model 'Contact'
+        db.delete_table(u'contact_contact')
 
 
     models = {
-        u'contacts.generalcontact': {
-            'Meta': {'object_name': 'GeneralContact'},
+        u'contact.contact': {
+            'Meta': {'object_name': 'Contact'},
             'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'email': ('django.db.models.fields.EmailField', [], {'max_length': '75'}),
             'first_name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
@@ -39,4 +39,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['contacts']
+    complete_apps = ['contact']
