@@ -1,0 +1,14 @@
+{% extends 'projects/base.html' %}
+
+{% block body_block %}
+	<h1>Mesage Log</h1>
+	{% for contact in contacts %}
+		<ul>
+			<li>{{ contact.last_name }}, {{ contact.first_name }}<br>
+				{{ contact.subject }}</a><br>
+				{{ contact.date_created }}<br>
+				<p>{{ contact.message }}</p>
+			</li>
+		</ul>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'projects/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - About{% endblock %}
+
+{% block body_block %}
+
+<br>
+<br>
+
+<section id="company">
+<div class="row">
+	<div class="large-12 columns">
+
+		<!-- Who We Are -->
+		<section id="company_description">
+			<div class="row">
+				<div class="small-3 columns">
+					<h4>Who We Are</h4>
+				</div>
+				<div class="small-9 columns">
+					<p>skjfaifng afkjga akfaiof fkaif afkahguhag alfkakf aflafha afkjaugr weuraf aguihoa avnjdfbe eaf afife8v a adhaiu ihisufa ahfiaf akfhaif ahfioua afhiafiu alkfhai uaf iauh aifuha aifiuagiagf aa fuifaiufhai afiagiafb afiahfi aifhai</p>
+					<p>askfjhlia afhlifd afhaif afihaif afiahfi afihafiua fiahfia iuhfiaf aifhaif ahfiua aifhiuaf udb</p>
+				</div>
+			</div>
+		</section>
+
+		<br>
+
+		<section id="company_capabilities">
+			<div class="row">
+				<div class="small-3 columns">
+					<h4>What We Do</h4>
+				</div>
+				<div class="small-9 columns">
+					<p>skjfaifng afkjga akfaiof fkaif afkahguhag alfkakf aflafha afkjaugr weuraf aguihoa avnjdfbe eaf afife8v a adhaiu ihisufa ahfiaf akfhaif ahfioua afhiafiu alkfhai uaf iauh aifuha aifiuagiagf aa fuifaiufhai afiagiafb afiahfi aifhai</p>
+					<p>askfjhlia afhlifd afhaif afihaif afiahfi afihafiua fiahfia iuhfiaf aifhaif ahfiua aifhiuaf udb</p>
+				</div>
+			</div>
+		</section>
+		
+		<br>
+
+		<section id="media">
+			{% if media %}
+			<div class="row">
+				<div class="small-3 columns">
+					<h4>Recognition</h4>
+				</div>
+				<div class="small-9 columns">
+					{% for article in media %}
+					<div id="media_article" class="row">
+						<div class="small-12 columns">
+							<a href="{{ article.url }}"><h5>{{ article.title}} - {{ article.publication }}</h5></a>
+							<p>{{ article.quote }}</p>
+							<hr></hr>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+		</section>
+
+	</div>
+</div>
+</section>
+
+<br>
+<br>
+
+<section id="team">
+<div class="row">
+	<div class="large-12 columns">
+		{% for teammember in team %}
+		<div class="panel">
+			<div class="row">
+				<!-- Team Member Photo -->
+				<div class="large-3 columns">
+					<img src="{{ teammember.photo.url }}" height="100" width="100">
+				</div>
+				<!-- Team Member Bio & Links -->
+				<div class="large-9 columns">
+					<h4>{{ teammember.name }}</h4>
+					<h5>{{ teammember.title }}</h5>
+					<hr width="100%" align="left"></hr>
+					<p>{{ teammember.bio }}</p>
+					<div id="links" class="row">
+						<div class="small-12 columns">
+						{% for link in teammember.links %}
+							<a href="{{ link.url }}"><img src="{{ link.icon.url }}" alt="{{ link.title }}" height="50" width="50"></a>
+						{% endfor %}
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		{% endfor %}
+
+	</div>
+</div>
+</section>
+
+{% endblock %}

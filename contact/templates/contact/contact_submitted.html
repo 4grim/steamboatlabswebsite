@@ -1,0 +1,12 @@
+{% extends 'projects/base.html' %}
+
+{% block body_block %}
+	<h1>Thank you for your submission.</h1>
+	
+	<p>Your message has been sent and has the confirmation number of {{ confirmation }}.</p>
+
+	{% if message.email %}
+		<p>A copy of your message has also been sent to the email provided.</p>
+	{% endif %}
+
+{% endblock %}

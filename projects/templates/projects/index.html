@@ -1,0 +1,66 @@
+{% extends 'projects/base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+
+	<!-- Unknown Content Section -->
+	<div class="row">
+		<div class="small-12 columns">
+			<div class='container'>
+				<h2>Information</h2>
+
+				<p>klfnnsdfnb;kdsfn ;bsndf gnsdfls dbfgabkjfb ljkabjkl adfjkn jknaknd jknal kjfv kjshc sdkjfhaepoifo vsdbfbv skjdfgiuayge akfjhakfg akfaoepoaf alflahfiua fahfuiahfi afjaoifjeoa fakjhfuagf afhaiufh</p>
+			</div>
+		</div>
+	</div>
+
+<section id="feature_projects">
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="panel">
+				<div class="row">
+
+					<h2>Feature Projects</h2>
+					<br>
+
+					{% for project in projects_featured_list %}
+					<div id="project" class="large-4 medium-4 columns">
+						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+						{% if project.company_logo %}
+						<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
+						{% endif %}
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="credentials">
+	<div class="row">
+		{% if testimonials %}	
+			<div class="large-6 columns testimonials">
+				<div class="panel left">
+					{% for testimonial in testimonials %}
+						<p>{{ testimonial }}</p>
+					{% endfor %}
+				</div>
+			</div>
+			<div id="team" class="large-6 columns">
+				<div class="panel">
+					<h3 align="center"><a href='#'>Meet the Team</a></h3>
+				</div>
+			</div>
+		{% else %}
+			<div id="team" class="large-12 columns">
+				<div class="panel">
+					meet the team
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</section>
+{% endblock %}
