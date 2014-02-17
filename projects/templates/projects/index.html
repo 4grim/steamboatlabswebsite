@@ -4,7 +4,7 @@
 
 {% block body_block %}
 
-	<!-- Unknown Content Section -->
+	<!-- General Content Section -->
 	<div class="row">
 		<div class="small-12 columns">
 			<div class='container'>
@@ -15,52 +15,53 @@
 		</div>
 	</div>
 
-<section id="feature_projects">
-	<div class="row">
-		<div class="small-12 columns">
-			<div class="panel">
-				<div class="row">
+	<section id="feature_projects">
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="panel">
+					<div class="row">
 
-					<h2>Feature Projects</h2>
-					<br>
+						<h2>Feature Projects</h2>
+						<br>
 
-					{% for project in projects_featured_list %}
-					<div id="project" class="large-4 medium-4 columns">
-						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-						{% if project.company_logo %}
-						<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
-						{% endif %}
+						{% for project in projects_featured_list %}
+						<div id="project" class="large-4 medium-4 columns">
+							<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
+							{% if project.company_logo %}
+							<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
+							{% endif %}
+						</div>
+						{% endfor %}
+
 					</div>
-					{% endfor %}
-
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<section id="credentials">
-	<div class="row">
-		{% if testimonials %}	
-			<div class="large-6 columns testimonials">
-				<div class="panel left">
-					{% for testimonial in testimonials %}
-						<p>{{ testimonial }}</p>
-					{% endfor %}
+	<section id="credentials">
+		<div class="row">
+			{% if testimonials %}	
+				<div class="large-6 columns testimonials">
+					<div class="panel left">
+						{% for testimonial in testimonials %}
+							<p>{{ testimonial }}</p>
+						{% endfor %}
+					</div>
 				</div>
-			</div>
-			<div id="team" class="large-6 columns">
-				<div class="panel">
-					<h3 align="center"><a href='#'>Meet the Team</a></h3>
+				<div id="team" class="large-6 columns">
+					<div class="panel">
+						<h3 align="center"><a href='{% url 'about' %}#team_members'>Meet the Team</a></h3>
+					</div>
 				</div>
-			</div>
-		{% else %}
-			<div id="team" class="large-12 columns">
-				<div class="panel">
-					meet the team
+			{% else %}
+				<div id="team" class="large-12 columns">
+					<div class="panel">
+						<a href="{% url 'about' %}">Meet the Team</a>
+					</div>
 				</div>
-			</div>
-		{% endif %}
-	</div>
-</section>
+			{% endif %}
+		</div>
+	</section>
+
 {% endblock %}

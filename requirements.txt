@@ -6,3 +6,5 @@ gunicorn==18.0
 dj_static==0.0.5
 dj_database_url==0.2.2
 psycopg2==2.5.2
+boto==2.25.0
+django-storages==1.1.8

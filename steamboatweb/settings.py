@@ -20,7 +20,7 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 SECRET_KEY = '2i1dklhl1!!_j&p(qjoa$b7(=nhqtrkuoj2g(hl*=%+*vn$cr='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'projects',
     'contact',
     'about',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,6 +92,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 ) 
 
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 ADMINS = (('Sam', 'sam@steamboatlabs.com'), ('Amber', 'amber@steamboatlabs.com'))
 
 # Allow all host hosts/domain names for this site
@@ -109,3 +112,15 @@ try:
     from local_settings import *
 except Exception as e:
     pass
+
+#S3 storage
+# from S3 import CallingFormat
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+AWS_ACCESS_KEY_ID = 'AKIAI36BTSMMNYWRG2VA'
+
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'steamboatweb'
+
+# AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN

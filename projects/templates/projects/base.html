@@ -3,55 +3,64 @@
 <!DOCTYPE html>
 
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Steamboat Labs{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'projects/css/foundation.css' %}" />
-    <link rel="stylesheet" href="{% static 'projects/css/style.css' %}" />
-    <script src="{% static 'projects/js/vendor/modernizr.js' %}"></script>
-  </head>
-  <body>
-    <!-- Nav bar and Company logo -->
-    <section id="nav_bar">
-      <div class="row">
-        <div class="small-6 columns">
-			   <a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
-		    </div>
-		    <div class="small-5 columns">
-			   <a href="{% url 'project_index' %}" class="small button">Projects</a>
-			   <a href="{% url 'about' %}" class="small button">About</a>
-			   <a href="{% url 'contact' %}" class="small button">Contact</a>
-		    </div>
-		    <div class ="small-1 columns">
-			   <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
-		    </div>
-	   </div>
-   </section>
 
-   <section id="body">
-    {% block body_block %}
-    {% endblock %}
-  </section>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <section id="footer">
-    <div class="row">
-      <hr></hr>
-      <div class="large-6 columns">
-        <p class="text-left">&copy; 2014 Steamboat Labs, LLC</p>
-      </div>
-      <div class="large-6 columns">
-        <p class="text-right"><a href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
-      </div>
-    </div>
-  </section>
+        <title>Steamboat Labs{% block title %}{% endblock %}</title>
 
+        <link rel="stylesheet" href="{% static 'projects/css/foundation.css' %}" />
+        <link rel="stylesheet" href="{% static 'projects/css/style.css' %}" />
+        <script src="{% static 'projects/js/vendor/modernizr.js' %}"></script>
+    </head>
+
+    <body>
+        
+        <section id="nav_bar">
+            <div class="row">
+                <!-- Company Title -->
+                <div class="small-6 columns">
+                    <a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
+                </div>
+                <!-- Nav Links -->
+                <div class="small-5 columns">
+                    <a href="{% url 'project_index' %}" class="small button">Projects</a>
+                    <a href="{% url 'about' %}" class="small button">About</a>
+                    <a href="{% url 'contact' %}" class="small button">Contact</a>
+                </div>
+                <!-- Company Logo -->
+                <div class ="small-1 columns">
+                    <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Child Template Class Content -->
+        <section id="body">
+            {% block body_block %}
+            {% endblock %}
+        </section>
+
+        <section id="footer">
+            <div class="row">
+                <hr></hr>
+                <div class="large-6 columns">
+                    <p class="text-left">&copy; 2014 Steamboat Labs, LLC</p>
+                </div>
+                <div class="large-6 columns">
+                    <p class="text-right"><a href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
+                </div>
+            </div>
+        </section>
 
     <script src="{% static 'projects/js/vendor/jquery.js' %}"></script>
     <!-- below imports all js libraries, can edit with only the essentials if needed and too slow -->
     <script src="{% static 'projects/js/foundation.min.js' %}"></script>
     <script>
-      $(document).foundation();
+        $(document).foundation();
     </script>
-  </body>
+    
+    </body>
+    
 </html>
