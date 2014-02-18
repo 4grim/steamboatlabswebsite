@@ -9,11 +9,20 @@ class ProjectImage(models.Model):
 		return self.title
 
 
+class MediaLinks(models.Model):
+	publication = models.CharField(max_length=200)
+	link = models.URLField()
+	quote = models.TextField(blank=True)
+
+	def __unicode__(self):
+		return self.publication
+
+
 class Client(models.Model):
 	company_name = models.CharField(max_length=200, default='')
 	company_logo = models.ImageField(upload_to='projects', blank=True, default='')
 	company_website = models.URLField(blank=True, default='')
-	testimonial = models.TextField()
+	testimonial = models.TextField(blank=True)
 
 	def __unicode__(self):
 		return self.company_name
@@ -24,11 +33,12 @@ class Project(models.Model):
 	project_start = models.DateField()
 	project_end = models.DateField()
 	description = models.TextField()
-	technologies = models.TextField()
+	technologies = models.TextField(blank=True)
 	accomplishments = models.TextField()
 	feature_project = models.BooleanField()
 	images = models.ManyToManyField(ProjectImage, blank=True)
 	client = models.ForeignKey(Client)
+	media_links = models.ManyToManyField(MediaLinks, blank=True)
 
 	def __unicode__(self):
 		return self.title
