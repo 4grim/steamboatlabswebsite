@@ -21,8 +21,24 @@ class Client(models.Model):
 
 class Project(models.Model):
 	title = models.CharField(max_length=200)
-	project_start = models.DateField()
-	project_end = models.DateField()
+	months_in_year = (
+		('January', 'January'),
+		('February', 'February'),
+		('March', 'March'),
+		('April', 'April'),
+		('May', 'May'),
+		('June', 'June'),
+		('July', 'July'),
+		('August', 'August'),
+		('September', 'September'),
+		('October', 'October'),
+		('November', 'November'),
+		('December', 'December'),
+	)
+	project_start_month = models.CharField(max_length=9, choices=months_in_year, default='January')
+	project_start_year = models.PositiveIntegerField(max_length=4)
+	project_end_month = models.CharField(max_length=9, choices=months_in_year, default='January')
+	project_end_year = models.PositiveIntegerField(max_length=4)
 	description = models.TextField()
 	technologies = models.TextField(blank=True)
 	accomplishments = models.TextField()
