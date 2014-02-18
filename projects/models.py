@@ -9,7 +9,7 @@ class ProjectImage(models.Model):
 		return self.title
 
 
-class MediaLinks(models.Model):
+class MediaLink(models.Model):
 	publication = models.CharField(max_length=200)
 	link = models.URLField()
 	quote = models.TextField(blank=True)
@@ -38,7 +38,7 @@ class Project(models.Model):
 	feature_project = models.BooleanField()
 	images = models.ManyToManyField(ProjectImage, blank=True)
 	client = models.ForeignKey(Client)
-	media_links = models.ManyToManyField(MediaLinks, blank=True)
+	media_links = models.ManyToManyField(MediaLink, blank=True)
 
 	def __unicode__(self):
 		return self.title
