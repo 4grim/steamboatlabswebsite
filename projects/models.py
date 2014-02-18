@@ -38,7 +38,7 @@ class MediaLink(models.Model):
 	publication = models.CharField(max_length=200)
 	link = models.URLField()
 	quote = models.TextField(blank=True)
-	project = models.ForeignKey(Project)
+	project = models.ForeignKey(Project, null=True)
 
 	def __unicode__(self):
 		return self.publication
