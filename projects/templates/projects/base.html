@@ -16,7 +16,6 @@
 </head>
 
 <body>
-    
     <nav class="top-bar" data-topbar data-magellan-expedition="fixed">
         <ul class="title-area">
             <li class="name">
@@ -34,23 +33,23 @@
         </section>
     </nav>
         
-        <!-- Child Template Class Content -->
-        <section id="main-content">
-            {% block body_block %}
-            {% endblock %}
-        </section>
+    <!-- Child Template Class Content -->
+    <section id="main-content">
+        {% block body_block %}
+        {% endblock %}
+    </section>
 
-        <section id="footer">
-            <div class="row">
-                <hr></hr>
-                <div class="large-6 columns">
-                    <p class="text-left">&copy; 2014 Steamboat Labs, LLC</p>
-                </div>
-                <div class="large-6 columns">
-                    <p class="text-right"><a href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
-                </div>
+    <section id="footer">
+        <div class="row">
+            <hr></hr>
+            <div class="large-6 columns">
+                <p class="text-left">&copy; 2014 Steamboat Labs, LLC</p>
             </div>
-        </section>
+            <div class="large-6 columns">
+                <p class="text-right"><a href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
+            </div>
+        </div>
+    </section>
 
     <script src="{% static 'projects/js/vendor/jquery.js' %}"></script>
     <!-- below imports all js libraries, can edit with only the essentials if needed and too slow -->
@@ -59,7 +58,6 @@
     <script>
         $(document).foundation();
     </script>
-    
-    </body>
+</body>
     
 </html>
