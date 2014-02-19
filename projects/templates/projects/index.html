@@ -6,7 +6,7 @@
 
 	<!-- General Content Section -->
 	<div class="row">
-		<div class="small-12 columns">
+		<div class="large-12 columns">
 			<div class='container'>
 				<h4>A mobile and web consultancy. <em>We make products happen.</em></h4>
 
@@ -25,18 +25,18 @@
 
 	<section id="feature_projects">
 		<div class="row">
-			<div class="small-12 columns">
+			<div class="large-12 columns">
 				<div class="panel">
 					<div class="row">
 
-						<h2>Feature Projects</h2>
+						<h2>Featured Projects</h2>
 						<br>
-
 						{% for project in projects_featured_list %}
-						<div id="project" class="large-4 medium-4 columns">
-							<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-							{% if project.company_logo %}
-							<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
+						<div id="project">
+							{% if project.client.company_logo %}
+								<p><img src="{{ project.client.company_logo.url }}"></p>
+							{% else %}
+								<p><a href="{% url 'project_page' project.id %}">{{ project.title }}</a></p>
 							{% endif %}
 						</div>
 						{% endfor %}

@@ -16,25 +16,24 @@
     </head>
 
     <body>
-        
-        <section id="nav_bar">
+        <header id='header' class='stuck'>
             <div class="row">
-                <!-- Company Title -->
-                <div class="small-6 columns">
-                    <a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
-                </div>
-                <!-- Nav Links -->
-                <div class="small-5 columns">
-                    <a href="{% url 'project_index' %}" class="small button">Projects</a>
-                    <a href="{% url 'about' %}" class="small button">About</a>
-                    <a href="{% url 'contact' %}" class="small button">Contact</a>
-                </div>
-                <!-- Company Logo -->
-                <div class ="small-1 columns">
-                    <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
-                </div>
+                <nav>
+                    <div data-magellan-expedition="fixed">
+                        <!-- Company Logo -->
+                        <div class ="small-4 columns">
+                            <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' height='80' width='80'/></a>
+                        </div>
+                        <!-- Nav Links -->
+                        <div class="small-8 columns right">
+                            <a href="{% url 'project_index' %}" class="small button">Projects</a>
+                            <a href="{% url 'about' %}" class="small button">About</a>
+                            <a href="{% url 'contact' %}" class="small button">Contact</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </section>
+        </header>
         
         <!-- Child Template Class Content -->
         <section id="body">
