@@ -21,8 +21,9 @@ def index(request):
 
 def project_index(request):
 	# List of all Projects
-	project_list = Project.objects.all()
-	context = {'project_list': project_list}
+	project_list = Project.objects.order_by('-project_end')
+	clients = Client.objects.all()
+	context = {'project_list': project_list, 'clients': clients}
 
 	return render(request, 'projects/project_index.html', context)
 

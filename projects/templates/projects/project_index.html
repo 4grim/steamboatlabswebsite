@@ -20,23 +20,24 @@
 			<div class="panel">
 			<div class="row">
 			{% for project in project_list %}
-				{% if project.company_logo %}
-					<div class="small-2 columns">
-						<img src="{{ project.company_logo.url }}" height="100" width="100">
+				{% if project.client.company_logo %}
+					<div class="large-2 columns">
+						<img src="{{ project.client.company_logo.url }}" height="100" width="100">
 					</div>
-					<div class="small-10 columns">
-						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-						<p>{{ project.project_start}} - {{ project.project_end }}</p>
+					<div class="large-10 columns">
+						<p><a href="{% url 'project_page' project.id %}">{{ project.title }}</a></p>
+						<p>{{ project.project_start|date:"F j" }} - {{ project.project_end|date:"F j" }}</p>
 						<p>{{ project.technologies }}</p>
 					</div>
 				{% else %}
-					<div class="small-12 columns">
-						<a href="{% url 'project_page' project.id %}">{{ project.title }}</a>
-						<p>{{ project.project_start}} - {{ project.project_end }}</p>
+					<div class="large-12 columns">
+						<p><a href="{% url 'project_page' project.id %}">{{ project.title }}</a></p>
+						<p>{{ project.project_start|date:"F j" }} - {{ project.project_end|date:"F j" }}</p>
 						<p>{{ project.technologies }}</p>
 					</div>
 				{% endif %}
 				<hr></hr>
+				
 			{% endfor %}
 			</div>
 			</div>
