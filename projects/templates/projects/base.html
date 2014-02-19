@@ -4,40 +4,38 @@
 
 <html class="no-js" lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Steamboat Labs{% block title %}{% endblock %}</title>
+<title>Steamboat Labs{% block title %}{% endblock %}</title>
 
-        <link rel="stylesheet" href="{% static 'projects/css/foundation.css' %}" />
-        <link rel="stylesheet" href="{% static 'projects/css/style.css' %}" />
-        <script src="{% static 'projects/js/vendor/modernizr.js' %}"></script>
-    </head>
+<link rel="stylesheet" href="{% static 'projects/css/foundation.css' %}" />
+<link rel="stylesheet" href="{% static 'projects/css/style.css' %}" />
+<script src="{% static 'projects/js/vendor/modernizr.js' %}"></script>
+</head>
 
-    <body>
-        
-        <section id="nav_bar">
-            <div class="row">
-                <!-- Company Title -->
-                <div class="small-6 columns">
-                    <a href="{% url 'index' %}"><h1>Steamboat Labs</h1></a>
-                </div>
-                <!-- Nav Links -->
-                <div class="small-5 columns">
-                    <a href="{% url 'project_index' %}" class="small button">Projects</a>
-                    <a href="{% url 'about' %}" class="small button">About</a>
-                    <a href="{% url 'contact' %}" class="small button">Contact</a>
-                </div>
-                <!-- Company Logo -->
-                <div class ="small-1 columns">
-                    <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' /></a>
-                </div>
-            </div>
+<body>
+    
+    <nav class="top-bar" data-topbar data-magellan-expedition="fixed">
+        <ul class="title-area">
+            <li class="name">
+              <h1><a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' class="sb_logo" /> Steamboat Labs</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li><a href="{% url 'project_index' %}">Projects</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
         </section>
+    </nav>
         
         <!-- Child Template Class Content -->
-        <section id="body">
+        <section id="main-content">
             {% block body_block %}
             {% endblock %}
         </section>
@@ -57,6 +55,7 @@
     <script src="{% static 'projects/js/vendor/jquery.js' %}"></script>
     <!-- below imports all js libraries, can edit with only the essentials if needed and too slow -->
     <script src="{% static 'projects/js/foundation.min.js' %}"></script>
+    <!-- <script src="{% static 'projects/js/foundation.magellan.js' %}"></script> -->
     <script>
         $(document).foundation();
     </script>
