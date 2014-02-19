@@ -92,7 +92,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 ) 
 
-# STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 ADMINS = (('Sam', 'sam@steamboatlabs.com'), ('Amber', 'amber@steamboatlabs.com'))
 
@@ -115,12 +115,12 @@ except Exception as e:
 
 #S3 storage
 # from S3 import CallingFormat
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-# AWS_ACCESS_KEY_ID = 'AKIAI36BTSMMNYWRG2VA'
+AWS_ACCESS_KEY_ID = 'AKIAI36BTSMMNYWRG2VA'
 
-# AWS_SECRET_ACCESS_KEY = '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'
+AWS_SECRET_ACCESS_KEY = '6/b6c699hAZuTY6bTnP1/z9xazL+31i+0TpkAK6N'
 
-# AWS_STORAGE_BUCKET_NAME = 'steamboatweb'
+AWS_STORAGE_BUCKET_NAME = 'steamboatweb'
 
 # AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
