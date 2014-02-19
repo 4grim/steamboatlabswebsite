@@ -33,12 +33,30 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.comments',
     'south',
     'projects',
     'contact',
     'about',
     'storages',
+    'tagging',
+    'mptt',
+    'zinnia',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
+    "zinnia.context_processors.version",
+    )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,6 +71,7 @@ ROOT_URLCONF = 'steamboatweb.urls'
 
 WSGI_APPLICATION = 'steamboatweb.wsgi.application'
 
+SITE_ID = 1
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -114,7 +133,6 @@ except Exception as e:
     pass
 
 #S3 storage
-# from S3 import CallingFormat
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_ACCESS_KEY_ID = 'AKIAI36BTSMMNYWRG2VA'
@@ -122,5 +140,3 @@ AWS_ACCESS_KEY_ID = 'AKIAI36BTSMMNYWRG2VA'
 AWS_SECRET_ACCESS_KEY = '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'
 
 AWS_STORAGE_BUCKET_NAME = 'steamboatweb'
-
-# AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN

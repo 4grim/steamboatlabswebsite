@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^', include('projects.urls')),
     url(r'^contact/', include('contact.urls')),
     url(r'^about/', include('about.urls')),
+    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
