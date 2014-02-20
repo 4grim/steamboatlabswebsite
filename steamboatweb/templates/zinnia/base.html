@@ -68,44 +68,9 @@
                 {% get_authors %}
             </aside>
 
-            <aside id="widget-calendar" class="widget">
-                <h3>{% trans "Calendar" %}</h3>
-                {% get_calendar_entries %}
-            </aside>
-
             <aside id="widget-tags" class="widget">
                 <h3>{% trans "Tags" %}</h3>
                 {% get_tag_cloud %}
-            </aside>
-
-            <aside id="widget-recents" class="widget">
-                <h3>{% trans "Recent entries" %}</h3>
-                {% get_recent_entries %}
-            </aside>
-
-            <aside id="widget-comments" class="widget">
-                <h3>{% trans "Recent comments" %}</h3>
-                {% get_recent_comments %}
-            </aside>
-
-            <aside id="widget-linkbacks" class="widget">
-                <h3>{% trans "Recent linkbacks" %}</h3>
-                {% get_recent_linkbacks %}
-            </aside>
-
-            <aside id="widget-randoms" class="widget">
-                <h3>{% trans "Random entries" %}</h3>
-                {% get_random_entries %}
-            </aside>
-
-            <aside id="widget-populars" class="widget">
-                <h3>{% trans "Popular entries" %}</h3>
-                {% get_popular_entries %}
-            </aside>
-
-            <aside id="widget-archives" class="widget">
-                <h3>{% trans "Archives" %}</h3>
-                {% get_archives_entries_tree %}
             </aside>
 
             {% if user.is_authenticated %}
