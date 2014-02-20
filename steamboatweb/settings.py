@@ -24,6 +24,12 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'app_namespace.Loader',
+)
+
 # Application definition
 
 INSTALLED_APPS = (

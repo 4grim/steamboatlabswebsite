@@ -27,6 +27,7 @@
             <ul class="right">
                 <li><a href="{% url 'project_index' %}">Projects</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="/weblog/">Blog</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </section>
@@ -34,8 +35,16 @@
         
     <!-- Child Template Class Content -->
     <section id="main-content">
+
         {% block body_block %}
+            {% block breadcrumbs %}
+            {% endblock breadcrumbs %}
+
+            {% block slider %}
+            {% endblock %}
+
         {% endblock %}
+
     </section>
 
     <section id="footer">

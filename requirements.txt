@@ -15,3 +15,4 @@ pyparsing==2.0.1
 django-xmlrpc==0.1.5
 django-blog-zinnia==0.14
 pytz==2013.9
+django-app-namespace-template-loader==0.1
