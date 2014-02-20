@@ -1,3 +1,39 @@
 div.testimonials {
 	font-style: italic;
 }
+
+img.sb_logo {
+	width: 32px;
+}
+
+#big-screen {
+	background: url(/static/projects/Hack_Day2.png) #074e68;
+	height: 650px;
+	text-align: left;
+	position: relative;
+	padding: 100px 20px 0 20px;
+}
+
+#feature_projects {
+	text-align: left;
+	position: relative;
+	padding: 50px 20px;
+}
+
+.whitey, .head-links a {
+	color: #fff;
+}
+
+.top-bar, .top-bar a, .top-bar li {
+	color: #333 !important;
+	background: #fff !important;
+}
+
+#big-screen h1 {
+	font-size: 6.75rem;
+}
+
+[data-magellan-expedition] {
+	background: transparent;
+	padding: 0;
+}
