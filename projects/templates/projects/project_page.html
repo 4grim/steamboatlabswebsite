@@ -52,7 +52,7 @@
 		<!-- Project Photos -->
 		<div class="large-3 columns">
 			<div class='project_pictures_container'>
-			{% for image in project_images.all %}
+			{% for image in tags.all %}
 				<p><a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}" height="100" width="100"></a></p>
 			{% endfor %}
 			</div>
