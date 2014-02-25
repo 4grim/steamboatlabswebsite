@@ -1,0 +1,40 @@
+{% extends 'projects/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - Blog{% endblock %}
+
+
+{% block body_block %}
+
+<section class="blog_entry">
+	<div class="row">
+		<div class="large-12 columns blog_header">
+			<h3>{{ entry.title }}</h3>
+			<h4>{{ entry.author }}</h4>
+			<p>{{ entry.categories }}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns blog_contents">
+			{{ entry.text }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns blog_images">
+			{{ entry.images }}
+		<div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns blog_files">
+			{{ entry.files }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns blog_tags">
+			{{ entry.tags }}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

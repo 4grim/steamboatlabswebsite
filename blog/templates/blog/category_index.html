@@ -1,0 +1,15 @@
+{% extends 'projects/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - Blog{% endblock %}
+
+{% block body_block %}
+	<div class="row">
+		<div class="large-12 columns">
+			{% for category in categories %}
+				<p><a href="{% url 'index_of_category' category.id %}" >{{ category }}</a></p>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
