@@ -5,9 +5,14 @@
 {% block content %}
 
 <div class="row">
-	{% for entry in entries %}
-		{% include 'blog/posted_entry_index.html' %}
-	{% endfor %}
+	{% if entries %}
+		{% for entry in entries %}
+			{% include 'blog/posted_entry_index.html' %}
+		{% endfor %}
+	{% else %}
+		<p>Hold tight! Entries are coming soon.</p>
+		<p>If you would like to get an update for the latest entries, please let us know <a href="{% url 'contact' %}">here</a>.<p>
+	{% endif %}
 </div>
 
 {% endblock %}
