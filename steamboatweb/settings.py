@@ -46,10 +46,9 @@ INSTALLED_APPS = (
     'contact',
     'about',
     'storages',
-    'tagging',
     'mptt',
-    'zinnia',
     'blog',
+    'taggit'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -61,7 +60,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-    "zinnia.context_processors.version",
     )
 
 
@@ -133,12 +131,6 @@ DATABASES = {'default': dj_database_url.config()}
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'HTTPS')
 
-# try to load local_settings.py if it exists
-try:
-    from local_settings import *
-except Exception as e:
-    pass
-
 #S3 storage
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
@@ -147,3 +139,10 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
+
+
+# try to load local_settings.py if it exists
+try:
+    from local_settings import *
+except Exception as e:
+    pass

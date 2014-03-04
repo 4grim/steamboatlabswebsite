@@ -1,0 +1,12 @@
+<div class="row panel">
+
+	<h4><a href="{% url 'entry' entry.id %}">{{ entry.title }}</a></h4>
+	<h5>By {{ entry.author }}</h5>
+	<p>{% for category in entry.categories.filter %}
+		<a href="{% url 'index_of_category' category.id %}">{{ category }}</a>
+	{% endfor %}</p>
+	<p>{{ entry.text }}</p>
+	<p>{% for tag in entry.tags.filter %}
+		<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
+	{% endfor %}</p>
+</div>

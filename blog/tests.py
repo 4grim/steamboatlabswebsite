@@ -1,3 +1,8 @@
 from django.test import TestCase
+from blog.models import Entry, EntryFile, EntryImage, Author, Category, Tag
 
-# Create your tests here.
+class EntryMethodTests(TestCase):
+
+
+
+

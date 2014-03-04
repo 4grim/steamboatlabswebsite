@@ -1,10 +1,17 @@
-{% extends 'projects/base.html' %}
+{% extends 'blog/blog_base.html' %}
 
 {% load staticfiles %}
 
-{% block title %} - Blog{% endblock %}
+{% block content %}
 
+<div class="row">
+	{% if related_posts %}
+		{% for post in related_posts %}
+			{% include 'blog/posted_entry_index.html' with entry=post %}
+		{% endfor %}
+	{% else %}
+		<p>There are currently no entries published with the associated tag.</p>
+	{% endif %}
+</div>
 
-{% block body_block %}
-here is the page of all entries with a specific tag
 {% endblock %}

@@ -9,10 +9,10 @@ psycopg2==2.5.2
 boto==2.25.0
 django-storages==1.1.8
 django-mptt==0.6.0
-django-tagging==0.3.2
 beautifulsoup4==4.3.2
 pyparsing==2.0.1
 django-xmlrpc==0.1.5
 django-blog-zinnia==0.14
 pytz==2013.9
 django-app-namespace-template-loader==0.1
+django-taggit==0.11.2

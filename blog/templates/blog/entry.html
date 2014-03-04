@@ -1,38 +1,25 @@
-{% extends 'projects/base.html' %}
+{% extends 'blog/blog_base.html' %}
 
 {% load staticfiles %}
 
-{% block title %} - Blog{% endblock %}
-
-
-{% block body_block %}
+{% block content %}
 
 <section class="blog_entry">
 	<div class="row">
-		<div class="large-12 columns blog_header">
-			<h3>{{ entry.title }}</h3>
-			<h4>{{ entry.author }}</h4>
-			<p>{{ entry.categories }}</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns blog_contents">
-			{{ entry.text }}
-		</div>
+		{% include 'blog/posted_entry_index.html' %}
 	</div>
 	<div class="row">
 		<div class="large-12 columns blog_images">
-			{{ entry.images }}
-		<div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns blog_files">
-			{{ entry.files }}
+			{% for image in entry.images.filter %}
+				<a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}" height="100" width="100"></a>
+			{% endfor %}
 		</div>
 	</div>
 	<div class="row">
-		<div class="large-12 columns blog_tags">
-			{{ entry.tags }}
+		<div class="large-12 columns blog_files">
+			{% for file in entry.files.filter %}
+				<a href="{{ file.entry_file.url }}"><img src="{{ file.entry_file.url }}" alt="{{ file.title }}"></a>
+			{% endfor %}
 		</div>
 	</div>
 </section>

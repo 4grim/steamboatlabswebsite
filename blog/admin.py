@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from blog.models import Tag, Category, Author, EntryImage, EntryFile, Entry
+from blog.models import Category, Author, EntryImage, EntryFile, Entry
 
-admin.site.register(Tag)
 admin.site.register(Category)
 admin.site.register(Author)
 admin.site.register(EntryImage)

@@ -1,0 +1,56 @@
+{% extends 'projects/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - Blog{% endblock %}
+
+
+{% block body_block %}
+
+<div class="row">
+	<section id="content">
+		<div class="large-9 columns">
+			{% block content %}
+			{% endblock %}
+		</div> 
+	</section>
+
+	<section id="sidebar">
+		<div class="large-3 columns panel">
+			{% block blog_sidebar %}
+				<div class="row">
+					<h3 class="text-center">Here will be a welcome message of some sort!</h3>
+				</div>
+
+				<div class="row">
+					<div class="large-12 columns text-center">
+						<h4>CATEGORIES</h4>
+						{% for category in categories %}
+							<a href="{% url 'index_of_category' category.id %}">{{ category }}</a>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns text-center">
+						<h4>AUTHORS</h4>
+						{% for author in authors %}
+							<a href="{% url 'index_of_author' author.id %}">{{ author }}</a>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns text-center">
+						<h4>TAGS</h4>
+						{% for tag in tags %}
+							<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }} </a>
+						{% endfor %}
+					</div>
+				</div>
+			{% endblock %}
+		</div>	
+	</section>
+</div>
+
+
+
+{% endblock %}
