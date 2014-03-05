@@ -2,10 +2,14 @@
 
 {% load staticfiles %}
 
+{% load markup %}
+
 {% block content %}
 
 <section class="blog_entry">
 	<div class="row">
+		{% load markup %}
+		{{ object.content|markdown:"codehilite" }}
 		{% include 'blog/posted_entry_index.html' %}
 	</div>
 	<div class="row">

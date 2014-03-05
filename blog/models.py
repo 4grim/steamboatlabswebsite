@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from markdown import markdown
 
 
 class Category(models.Model):
@@ -37,6 +38,7 @@ class EntryFile(models.Model):
 class Entry(models.Model):
 	title = models.CharField(max_length=200)
 	text = models.TextField()
+	text_html = models.TextField(editable=False, blank=True, null=True)
 	author = models.ForeignKey('Author')
 	post_date = models.DateTimeField(auto_now_add=True)
 	slug = models.SlugField(max_length=50)
@@ -47,6 +49,10 @@ class Entry(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	def save(self):
+		self.body_html= markdown(self.body, ['codehilite'])
+		super(Entry, self).save()
 
 
 

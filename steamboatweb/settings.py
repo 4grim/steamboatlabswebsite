@@ -48,7 +48,9 @@ INSTALLED_APPS = (
     'storages',
     'mptt',
     'blog',
-    'taggit'
+    'taggit',
+    'pygments',
+    'markdown',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
