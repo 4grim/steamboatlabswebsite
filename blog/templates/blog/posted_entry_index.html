@@ -5,7 +5,7 @@
 	<p>{% for category in entry.categories.filter %}
 		<a href="{% url 'index_of_category' category.id %}">{{ category }}</a>
 	{% endfor %}</p>
-	<p>{{ entry.text }}</p>
+	<p>{{ entry.text_to_html|safe }}</p>
 	<p>{% for tag in entry.tags.filter %}
 		<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
 	{% endfor %}</p>

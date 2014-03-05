@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'taggit',
     'pygments',
     'markdown',
+    'pagedown',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

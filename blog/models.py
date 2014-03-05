@@ -38,27 +38,22 @@ class EntryFile(models.Model):
 class Entry(models.Model):
 	title = models.CharField(max_length=200)
 	text = models.TextField()
-	text_html = models.TextField(editable=False, blank=True, null=True)
 	author = models.ForeignKey('Author')
 	post_date = models.DateTimeField(auto_now_add=True)
-	slug = models.SlugField(max_length=50)
+	slug = models.SlugField()
 	categories = models.ManyToManyField(Category, blank=True)
 	tags = TaggableManager()
 	images = models.ManyToManyField(EntryImage, blank=True)
 	files = models.ManyToManyField(EntryFile, blank=True)
 
+	@property
+	def text_to_html(self):
+		return markdown(self.text, extensions=['codehilite(linenums=True)'])
+
 	def __unicode__(self):
 		return self.title
 
-	def save(self):
-		self.body_html= markdown(self.body, ['codehilite'])
-		super(Entry, self).save()
 
-
-
-	# on monel put a method called all tags and retun 
-	# self.tags.filter to be an interable of all the tags 
-	# the thing has
 
 
 
