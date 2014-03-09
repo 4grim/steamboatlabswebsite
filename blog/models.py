@@ -40,7 +40,7 @@ class Entry(models.Model):
 	text = models.TextField()
 	author = models.ForeignKey('Author')
 	post_date = models.DateTimeField(auto_now_add=True)
-	slug = models.SlugField()
+	slug = models.SlugField(unique=True)
 	categories = models.ManyToManyField(Category, blank=True)
 	tags = TaggableManager()
 	images = models.ManyToManyField(EntryImage, blank=True)

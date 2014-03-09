@@ -1,0 +1,24 @@
+{% extends 'blog/blog_base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+	{% if entries %}
+		{% for date, entry in archive_dict.items %}
+			<h3>{{ date }}</h3>
+
+			{% for post in entry %}
+				<ul>
+					<li>{{ post }}, {{ post.post_date|date:"M j" }}</li>
+				</ul>
+			{% endfor %}
+
+		{% endfor %}
+	{% else %}
+		<p>The archives are empty!</p>
+	{% endif %}
+</div>
+
+{% endblock %}
