@@ -6,7 +6,7 @@
 
 <div class="row">
 	{% if entries %}
-		{% for entry in entries %}
+		{% for entry in posts %}
 			{% include 'blog/posted_entry_index.html' %}
 		{% endfor %}
 	{% else %}
@@ -14,5 +14,25 @@
 		<p>If you would like to get an update for the latest entries, please let us know <a href="{% url 'contact' %}">here</a>.<p>
 	{% endif %}
 </div>
+<div class="row pagination">
+	{% if posts.has_previous %}
+		<div class="large-4 columns text-left">
+			<p><a href="?page={{ posts.previous_page_number }}">previous</a></p>
+		</div>
+		<div class="large-4 columns text-center">
+			<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
+		</div>
+	{% else %}
+		<div class="large-4 large-push-4 columns text-center">
+			<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
+		</div>
+	{% endif %}
+	<div class="large-4 columns text-right">
+		{% if posts.has_next %}
+			<p><a href="?page={{ posts.next_page_number }}">next</a></p>
+		{% endif %}
+	</div>
+</dviv>
+
 
 {% endblock %}

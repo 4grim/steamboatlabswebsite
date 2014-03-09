@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import Category, Author, EntryImage, EntryFile, Entry
 from taggit.models import Tag
 
@@ -11,9 +12,19 @@ def get_context_data():
 	context = {'entries': entries, 'categories': categories, 'authors': authors, 'tags': tags}
 	return context
 		
-# all entries
+# main blog index
 def blog_index(request):
 	context = get_context_data()
+	entry_list = context['entries']
+	paginator = Paginator(entry_list, 3)
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(pagintor.num_pages)
+	context['posts'] = posts	
 	return render(request, 'blog/blog_index.html', context)
 
 # entry post
@@ -47,6 +58,7 @@ def index_of_tag(request, slug):
 	context['related_posts'] = related_posts
 	return render(request, 'blog/tag_page.html', context)
 
+# all entries
 def archive(request):
 	context = get_context_data()
 	post_dates = []
