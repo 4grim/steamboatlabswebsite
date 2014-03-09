@@ -41,21 +41,48 @@ def entry(request, slug):
 def index_of_category(request, category_id):
 	context = get_context_data()
 	related_posts = Entry.objects.filter(categories__id=category_id)
-	context['related_posts'] = related_posts
+	paginator = Paginator(related_posts, 3)
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(pagintor.num_pages)
+	context_add = {'related_posts': related_posts, 'posts': posts}
+	context.update(context_add)
 	return render(request, 'blog/category_page.html', context)
 
 # all blogs by an author
 def index_of_author(request, author_id):
 	context = get_context_data()
 	related_posts = Entry.objects.filter(author__id=author_id)
-	context['related_posts'] = related_posts
+	paginator = Paginator(related_posts, 3)
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(pagintor.num_pages)
+	context_add = {'related_posts': related_posts, 'posts': posts}
+	context.update(context_add)
 	return render(request, 'blog/author_page.html', context)
 
 # all blogs with a specific tag
 def index_of_tag(request, slug):
 	context = get_context_data()
 	related_posts = Entry.objects.filter(tags__name=slug)
-	context['related_posts'] = related_posts
+	paginator = Paginator(related_posts, 3)
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(pagintor.num_pages)
+	context_add = {'related_posts': related_posts, 'posts': posts}
+	context.update(context_add)
 	return render(request, 'blog/tag_page.html', context)
 
 # all entries

@@ -1,7 +1,10 @@
 <div class="row panel">
 
-	<h4><a href="{% url 'entry' entry.slug %}">{{ entry.title }}</a></h4>
-	<h5>By {{ entry.author }}</h5>
+	<div class="row">
+		<h4 class="post_title"><a href="{% url 'entry' entry.slug %}">{{ entry.title }}</a></h4>
+		<p>By {{ entry.author }}</p>
+	</div>
+
 	<p>{% for category in entry.categories.filter %}
 		<a href="{% url 'index_of_category' category.id %}">{{ category }}</a>
 	{% endfor %}</p>
