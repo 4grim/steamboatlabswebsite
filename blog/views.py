@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from django.shortcuts import render, get_object_or_404
 from blog.models import Category, Author, EntryImage, EntryFile, Entry
 from taggit.models import Tag
@@ -49,24 +50,18 @@ def index_of_tag(request, slug):
 def archive(request):
 	context = get_context_data()
 	post_dates = []
-	archive_dict = {}
+	archive_dict = OrderedDict({})
 	for entry in context['entries']:
 		entry_date = entry.post_date.strftime('%b %Y')
 		if entry_date not in post_dates:
 			post_dates.append(entry_date)
 	for entry in context['entries']:
 		for date in post_dates:
-			print 'what'
-			print date
-			print entry.post_date
 			if entry.post_date.strftime('%b %Y') == date:
-				print 'duh-doy'
 				if date in archive_dict: 
 					archive_dict[date].append(entry)
 				else:
-					print 'lol'
 					archive_dict[date] = [entry]
-	print archive_dict
 	context_add = {'post_dates': post_dates, 'archive_dict': archive_dict}
 	context.update(context_add)
 	return render(request, 'blog/archive.html', context)
