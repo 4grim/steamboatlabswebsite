@@ -21,6 +21,7 @@ class EntryImage(models.Model):
 	title = models.CharField(max_length=200)
 	description = models.TextField(blank=True)
 	image = models.ImageField(upload_to='blog', blank=True)
+	feature_image = models.BooleanField(default=False)
 
 	def __unicode__(self):
 		return self.title
@@ -45,6 +46,16 @@ class Entry(models.Model):
 	tags = TaggableManager()
 	images = models.ManyToManyField(EntryImage, blank=True)
 	files = models.ManyToManyField(EntryFile, blank=True)
+
+	def next(self):
+		entries = Entry.objects.order_by('post_date').filter(post_date__gt=self.post_date)
+		if entries.count():
+			return entries[0]
+
+	def previous(self):
+		entries = Entry.objects.order_by('-post_date').filter(post_date__lt=self.post_date)
+		if entries.count():
+			return entries[0]
 
 	@property
 	def text_to_html(self):

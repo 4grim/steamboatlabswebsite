@@ -33,7 +33,23 @@ def entry(request, slug):
 	entry = get_object_or_404(Entry, slug=slug)
 	entry_images = entry.images
 	entry_files = entry.files
-	context_add = {'entry': entry, 'entry_images': entry_images, 'entry_files': entry_files}
+
+	entry_list = context['entries']
+	paginator = Paginator(entry_list, 1)
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(pagintor.num_pages)
+
+	context_add = {
+		'entry': entry, 
+		'entry_images': entry_images, 
+		'entry_files': entry_files, 
+		'posts': posts,
+	}
 	context.update(context_add)
 	return render(request, 'blog/entry.html', context)
 

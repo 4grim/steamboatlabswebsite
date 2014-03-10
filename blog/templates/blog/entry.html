@@ -25,3 +25,18 @@
 </section>
 
 {% endblock %}
+
+{% block pagination%}
+	<div class="row pagination">
+		{% if entry.previous != None %}
+			<div class="large-6 columns text-left">
+				<p><a href="{% url 'entry' entry.previous.slug %}">previous post - {{ entry.previous.title }}</a></p>
+			</div>
+		{% endif %}
+		{% if entry.next != None %}
+			<div class="large-6 columns text-right">
+					<p><a href="{% url 'entry' entry.next.slug %}">next post - {{ entry.next.title }}</a></p>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}
