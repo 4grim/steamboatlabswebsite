@@ -45,12 +45,29 @@
 				</div>
 
 				<div class="row">
-					<p>
-						<a href="{% url 'archive' %}">Archives</a>
-						<!-- Blog search bar to go here -->
-					</p>
+					<!-- Search Box by Swiftype -->
+					<form>
+  						<input type="text" id="st-search-input" class="st-search-input" />
+					</form>
+					<script type="text/javascript">
+					var Swiftype = window.Swiftype || {};
+  						(function() {
+    						Swiftype.key = 'NQhrssM2zQTp4U1y2y6E';
+
+    						/** DO NOT EDIT BELOW THIS LINE **/
+    						var script = document.createElement('script');script.type = 'text/javascript'; script.async = true;
+    						script.src = "//s.swiftypecdn.com/embed.js";
+    						var entry = document.getElementsByTagName('script')[0];
+    						entry.parentNode.insertBefore(script, entry);
+  						}());
+					</script>
 				</div>
 
+				<div class="row text-center">
+					<p>
+						<a href="{% url 'archive' %}">Archives</a>
+					</p>
+				</div>	
 				<div class="row">
 					<div class="large-12 columns text-center">
 						<h4>CATEGORIES</h4>
