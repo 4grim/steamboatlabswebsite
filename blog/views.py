@@ -31,9 +31,8 @@ def blog_index(request):
 def entry(request, slug):
 	context = get_context_data()
 	entry = get_object_or_404(Entry, slug=slug)
-	entry_images = entry.images
+	featured_image = entry.images.filter(feature_image=True)
 	entry_files = entry.files
-
 	entry_list = context['entries']
 	paginator = Paginator(entry_list, 1)
 	page = request.GET.get('page')
@@ -46,9 +45,9 @@ def entry(request, slug):
 
 	context_add = {
 		'entry': entry, 
-		'entry_images': entry_images, 
 		'entry_files': entry_files, 
 		'posts': posts,
+		'featured_image': featured_image,
 	}
 	context.update(context_add)
 	return render(request, 'blog/entry.html', context)

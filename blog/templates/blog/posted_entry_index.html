@@ -1,15 +1,40 @@
 <div class="row panel">
 
+	<div class="row">			
+		<div class="small-9 columns">
+			<h2 class="post_title"><a href="{% url 'entry' entry.slug %}">{{ entry.title }}</a></h2>
+		</div>
+		<div class="small-3 columns text-right">
+			<p class="entry_author">By {{ entry.author }}</p>
+		</div>
+	</div>
+	{% for image in featured_image %}
+		<div class="row">
+			<div class="entry_feature_image large-12 columns">
+				<a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
+			</div>
+		</div>
+	{% endfor %}
+
+	{% for category in entry.categories.filter %}
+		<div class="row">
+			<div class="large-12 columns">
+				<p><a href="{% url 'index_of_category' category.id %}">{{ category }}</a></p>
+			</div>
+		</div>
+	{% endfor %}
+
 	<div class="row">
-		<h4 class="post_title"><a href="{% url 'entry' entry.slug %}">{{ entry.title }}</a></h4>
-		<p>By {{ entry.author }}</p>
+		<div class="entry_text large-12 columns">
+			{{ entry.text_to_html|safe }}
+		</div>
 	</div>
 
-	<p>{% for category in entry.categories.filter %}
-		<a href="{% url 'index_of_category' category.id %}">{{ category }}</a>
-	{% endfor %}</p>
-	<p>{{ entry.text_to_html|safe }}</p>
-	<p>{% for tag in entry.tags.filter %}
-		<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
-	{% endfor %}</p>
+	{% for tag in entry.tags.filter %}
+		<div class="row">
+			<div class="entry_tags large-12 columns">
+				<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
+			</div>
+		</div>
+	{% endfor %}
 </div>
