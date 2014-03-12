@@ -1,4 +1,4 @@
-.codehilite .hll { background-color: #333333 }
+.codehilite .hll { background-color: #333333; width: 100%;}
 .codehilite .c { color: #008800; font-style: italic; background-color: #0f140f } /* Comment */
 .codehilite .err { color: #ffffff } /* Error */
 .codehilite .g { color: #ffffff } /* Generic */

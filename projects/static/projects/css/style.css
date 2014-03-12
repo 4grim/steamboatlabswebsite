@@ -33,6 +33,18 @@ img.sb_logo {
 	font-size: 6.75rem;
 }
 
+table.codehilitetable {
+	width: 100%;
+}
+
+td.linenos {
+	padding-right: 0px;
+}
+
+div.codehilite {
+	margin: 0px;
+}
+
 [data-magellan-expedition] {
 	background: transparent;
 	padding: 0;
