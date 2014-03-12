@@ -1,3 +1,4 @@
+import re
 from django.db import models
 from taggit.managers import TaggableManager
 from markdown import markdown
@@ -19,7 +20,7 @@ class Author(models.Model):
 
 class EntryImage(models.Model):
 	title = models.CharField(max_length=200)
-	description = models.TextField(blank=True)
+	slug = models.SlugField(unique=True, default='default')
 	image = models.ImageField(upload_to='blog', blank=True)
 	feature_image = models.BooleanField(default=False)
 
@@ -30,6 +31,7 @@ class EntryImage(models.Model):
 class EntryFile(models.Model):
 	title = models.CharField(max_length=200)
 	description = models.TextField(blank=True)
+	slug = models.SlugField(unique=True, default='default')
 	entry_file = models.FileField(upload_to='blog', blank=True)
 
 	def __unicode__(self):
@@ -59,7 +61,19 @@ class Entry(models.Model):
 
 	@property
 	def text_to_html(self):
-		return markdown(self.text, extensions=['codehilite(linenums=True)'])
+		regex = r"\[img:([a-zA-Z0-9-_]+)\]"
+		current_text = self.text
+		search = re.search(regex, current_text)
+
+		while search:
+			slug = current_text[search.start(1):search.end(1)]
+			to_be_replaced = current_text[search.start():search.end()]
+			image = EntryImage.objects.get(slug=slug)
+			markdown_tag = '![Alt text](' + str(image.image.url) +')'
+			replacement = current_text.replace(to_be_replaced, markdown_tag)
+			current_text = replacement
+			search = re.search(regex, current_text)
+		return markdown(current_text, extensions=['codehilite(linenums=True)'])
 
 	def __unicode__(self):
 		return self.title

@@ -8,8 +8,15 @@ class EntryAdmin(admin.ModelAdmin):
 	date_hierarchy = 'post_date'
 
 
+class EntryImageAdmin(admin.ModelAdmin):
+	prepopulated_fields = {"slug": ("title",)}
+
+class EntryFileAdmin(admin.ModelAdmin):
+	prepopulated_fields = {"slug":("title",)}
+
+
 admin.site.register(Category)
 admin.site.register(Author)
-admin.site.register(EntryImage)
-admin.site.register(EntryFile)
+admin.site.register(EntryImage, EntryImageAdmin)
+admin.site.register(EntryFile, EntryFileAdmin)
 admin.site.register(Entry, EntryAdmin)
