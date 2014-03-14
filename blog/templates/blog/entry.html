@@ -21,31 +21,37 @@
 			</div>
 		{% endfor %}
 
-		{% for category in entry.categories.filter %}
-			<div class="row">
-				<div class="large-12 columns text-center">
-					<a class="blog-entry-category" href="{% url 'index_of_category' category.id %}">{{ category }}</a>
-				</div>
+		<div class="row blog-entry-categories">
+			<div class="large-12 columns text-center">
+				<p>Categories |
+					{% for category in entry.categories.filter %}
+						<a class="blog-entry-category" href="{% url 'index_of_category' category.id %}">{{ category }}</a>
+					{% endfor %}
+				</p>
 			</div>
-		{% endfor %}
+		</div>
 
 		<div class="row blog-entry-content">
 			<div class="large-8 large-offset-2 columns blog-entry-body">
 				{{ entry.text_to_html|safe }}
-		
-				{% for file in entry.files.filter %}
-					<div class="row">
-						<div class="large-12 columns blog_files">
-							<a href="{{ file.entry_file.url }}"><img src="{{ file.entry_file.url }}" alt="{{ file.title }}"></a>
-						</div>
-					</div>
-				{% endfor %}
 
-				{% for tag in entry.tags.filter %}
-					<div class="large-12 columns text-center">
-						<a class="blog-entry-tag" href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
+				<div class="row">
+					<div class="large-12 columns blog_files">
+						{% for file in entry.files.filter %}
+							<a href="{{ file.entry_file.url }}"><img src="{{ file.entry_file.url }}" alt="{{ file.title }}"></a>
+						{% endfor %}
 					</div>
-				{% endfor %}
+				</div>
+
+				<div class="row">
+					<div class="large-12 columns text-center">
+						<p>Tags|
+							{% for tag in entry.tags.filter %}
+								<a class="blog-entry-tag" href="{% url 'index_of_tag' tag.slug %}">#{{ tag }}</a>
+							{% endfor %}
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
