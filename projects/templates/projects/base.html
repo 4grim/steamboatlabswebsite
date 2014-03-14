@@ -29,10 +29,10 @@
 
         <section class="top-bar-section">
             <ul class="right">
-                <li><a href="{% url 'project_index' %}">Projects</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a class="top-bar-links" href="{% url 'project_index' %}">Projects</a></li>
+                <li><a class="top-bar-links" href="{% url 'about' %}">About</a></li>
+                <li><a class="top-bar-links" href="/blog/">Blog</a></li>
+                <li><a class="top-bar-links" href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </section>
     </nav>
@@ -55,10 +55,10 @@
         <div class="row">
             <hr></hr>
             <div class="large-6 columns">
-                <p class="text-left">&copy; 2014 Steamboat Labs, LLC</p>
+                <p class="company-title text-left">&copy; 2014 Steamboat Labs, LLC</p>
             </div>
             <div class="large-6 columns">
-                <p class="text-right"><a href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
+                <p class="text-right"><a class="company-contact" href= "mailto:hi@steamboatlabs.com">hi@steamboatlabs.com</a></p>
             </div>
         </div>
     </section>
