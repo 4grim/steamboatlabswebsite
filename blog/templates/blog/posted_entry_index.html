@@ -1,40 +1,52 @@
-<div class="row panel">
-
-	<div class="row">			
-		<div class="small-9 columns">
-			<h2 class="post_title"><a href="{% url 'entry' entry.slug %}">{{ entry.title }}</a></h2>
-		</div>
-		<div class="small-3 columns text-right">
-			<p class="entry_author">By {{ entry.author }}</p>
+<div class="row blog-entry-header">			
+	<div class="small-12 columns text-center">
+		<h2 class="blog-entry-title">{{ entry.title|upper }}</h2>
+		<p class="blog-entry-author">By {{ entry.author }} on {{ entry.post_date|date:"F j, Y" }}</p>
+	</div>
+</div>
+{% for image in featured_image %}
+	<div class="row blog-feature-image">
+		<div class="large-12 columns">
+			<a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
 		</div>
 	</div>
-	{% for image in featured_image %}
-		<div class="row">
-			<div class="entry_feature_image large-12 columns">
-				<a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
-			</div>
-		</div>
-	{% endfor %}
+{% endfor %}
 
-	{% for category in entry.categories.filter %}
-		<div class="row">
-			<div class="large-12 columns">
-				<p><a href="{% url 'index_of_category' category.id %}">{{ category }}</a></p>
-			</div>
-		</div>
-	{% endfor %}
+<br>
 
+{% for category in entry.categories.filter %}
 	<div class="row">
-		<div class="entry_text large-12 columns">
-			{{ entry.text_to_html|safe }}
+		<div class="large-12 columns text-center">
+			<a class="blog-entry-category" href="{% url 'index_of_category' category.id %}">{{ category }}</a>
 		</div>
 	</div>
+{% endfor %}
+
+<div class="row blog-entry-content">
+	<div class="large-8 large-offset-2 columns blog-entry-body">
+		{{ entry.text_to_html|safe }}
+	</div>
+	
 
 	{% for tag in entry.tags.filter %}
-		<div class="row">
-			<div class="entry_tags large-12 columns">
-				<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
-			</div>
+		<div class="large-12 columns text-center">
+			<a class="blog-entry-tag" href="{% url 'index_of_tag' tag.slug %}">{{ tag }}</a>
 		</div>
+
 	{% endfor %}
 </div>
+
+{% block pagination%}
+	<div class="row pagination">
+		{% if entry.previous != None %}
+			<div class="large-6 columns text-left">
+				<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
+			</div>
+		{% endif %}
+		{% if entry.next != None %}
+			<div class="large-6 columns text-right">
+					<p><a href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

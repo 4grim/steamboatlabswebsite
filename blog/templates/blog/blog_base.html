@@ -2,64 +2,68 @@
 
 {% load staticfiles %}
 
+{% block header %}
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+{% endblock %}
+
 {% block title %} - Blog{% endblock %}
 
 {% block body_block %}
 
-<section id="main-content">
-	<section id="big-screen">
+<section id="blog-main">
+	<section id="blog-big-screen">
 		<div class="row centered-text">
 			<div class="large-9 small-9 columns text-center medium-centered">
-				<h1>Steamboat Blog</h1>
-				<h3>Musings from the team</h3>
+				<h1 class="blog-title">STEAMBOAT BLOG</h1>
+				<h2 class="blog-subtitle">Musings from the team</h3>
 			</div>
 		</div>
 	</section>
 
-	<section id="content">
-		<section>
-			{% block content %}
-				{{ entry.text_to_html|safe }}
-			{% endblock %}
+	<section id="blog-content">
+		{% block content %}
+			{{ entry.text_to_html|safe }}
 
 			{% block pagination %}
-				<div class="row pagination">
-					{% if posts.has_previous %}
-						<div class="large-4 columns text-left">
-							<p><a href="?page={{ posts.previous_page_number }}">previous</a></p>
-						</div>
-						<div class="large-4 columns text-center">
-							<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
-						</div>
-					{% else %}
-						<div class="large-4 large-push-4 columns text-center">
-							<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
-						</div>
-					{% endif %}
-					<div class="large-4 columns text-right">
+			<div class="row pagination">
+				{% if posts.has_previous %}
+					<div class="large-4 columns text-left">
+						<p><a href="?page={{ posts.previous_page_number }}">previous</a></p>
+					</div>
+					<div class="large-4 columns text-center">
+						<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
+					</div>
+				{% else %}
+					<div class="large-4 large-push-4 columns text-center">
+						<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
+					</div>
+				{% endif %}
+				<div class="large-4 columns text-right">
 					{% if posts.has_next %}
 						<p><a href="?page={{ posts.next_page_number }}">next</a></p>
 					{% endif %}
-					</div>
 				</div>
+			</div>
 			{% endblock %}
-		</section>
+		{% endblock %}
+
 	</section>
 
-	<section id="lower-nav">
+	<section id="blog-lower-nav">
 		<div class="row">
 			<div class="large-3 columns">
-				<div class="row lower_nav_title">
-					<div class"large-12 columns">
-						<h4>Navigation</h4>
+				<div class="row">
+					<div class="large-12 columns">
+						<h4 class="blog-lower-nav-title">Navigation</h4>
 					</div>
 				</div>
-				<div class="row lower_nav_links">
+				<div class="row blog-lower-nav-links">
 					<div class="large-12 columns">
-						<a href="{% url 'index' %}">Home</a><br>
-    	 	           	<a href="{% url 'project_index' %}">Projects</a><br>
-    	 	           	<a href="{% url 'contact' %}">Contact Us</a><br>
-    	 	           	<a href="{% url 'archive' %}">Archives</a><br>
+						<a class="blog-nav-link" href="{% url 'index' %}">Home</a><br>
+    	 	           	<a class="blog-nav-link" href="{% url 'project_index' %}">Projects</a><br>
+    	 	           	<a class="blog-nav-link" href="{% url 'contact' %}">Contact Us</a><br>
+    	 	           	<a class="blog-nav-link" href="{% url 'archive' %}">Archives</a><br>
 
     	 	           	<form>
   						<input type="text" id="st-search-input" class="st-search-input" />
@@ -81,16 +85,14 @@
 			</div>
 
 			<div class="large-3 columns">
-				<div class="row lower_nav_title">
+				<div class="row">
 					<div class"large-12 columns">
-						<h4>Authors</h4>
+						<h4 class="blog-lower-nav-title">Authors</h4>
 					</div>
 				</div>
-				<div class="row lower_nav_links">
+				<div class="row blog-lower-nav-links">
 					{% for author in authors %}
-						<div class="large-12 columns">
-							<a href="{% url 'index_of_author' author.id %}">{{ author }}</a><br>
-						</div>
+						<a class="blog-nav-link" href="{% url 'index_of_author' author.id %}">{{ author }}</a><br>
 					{% endfor %}
 				</div>
 			</div>
@@ -98,14 +100,12 @@
 			<div class="large-3 columns">
 				<div class="row lower_nav_title">
 					<div class"large-12 columns">
-						<h4>Categories</h4>
+						<h4 class="blog-lower-nav-title">Categories</h4>
 					</div>
 				</div>
-				<div class="row lower_nav_links">
+				<div class="row blog-lower-nav-links">
 					{% for category in categories %}
-						<div class="large-12 columns">
-							<a href="{% url 'index_of_category' category.id %}">{{ category }}</a>
-						</div>
+						<a class="blog-nav-link"href="{% url 'index_of_category' category.id %}">{{ category }}</a>
 					{% endfor %}
 				</div>
 			</div>
@@ -113,14 +113,12 @@
 			<div class="large-3 columns">
 				<div class="row lower_nav_title">
 					<div class"large-12 columns">
-						<h4>Tags</h4>
+						<h4 class="blog-lower-nav-title">Tags</h4>
 					</div>
 				</div>
-				<div class="row lower_nav_links">
+				<div class="row blog-lower-nav-links">
 					{% for tag in tags %}
-						<div class="large-12 columns">
-							#<a href="{% url 'index_of_tag' tag.slug %}">{{ tag }} </a>
-						</div>
+						<a class="blog-nav-link" href="{% url 'index_of_tag' tag.slug %}">#{{ tag }} </a>
 					{% endfor %}
 				</div>
 			</div>
