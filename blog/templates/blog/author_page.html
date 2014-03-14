@@ -3,8 +3,7 @@
 {% load staticfiles %}
 
 {% block content %}
-
-<div class="row">
+<div class="row blog-index">
 	{% if related_posts %}
 		{% for post in related_posts %}
 			{% include 'blog/posted_entry_index.html' with entry=post %}
@@ -13,5 +12,4 @@
 		<p class="text-center">This author currently has no entries published.</p>
 	{% endif %}
 </div>
-
 {% endblock %}

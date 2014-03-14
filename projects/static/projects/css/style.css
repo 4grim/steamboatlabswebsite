@@ -62,11 +62,15 @@ h2.blog-subtitle {
 	padding-bottom: 136px;
 }
 
-#blog-content {
-
+div.blog-entry {
+	background-color: #ffffff;
+	margin-bottom: 45px;
+	margin-top: 45px;
+	width: 960px;
+	border: 1px solid #e1e4e6;
 }
 
-div.blog-entry {
+div.blog-index {
 	background-color: #ffffff;
 	margin-bottom: 45px;
 	margin-top: 45px;
@@ -112,6 +116,30 @@ div.pagination {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+div.blog-entry-index {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+a.blog-index-title {
+	color: #64737a;
+	font: italic 20px montserrat, normal;
+}
+
+p.blog-index-author {
+	font: 14px montserrat, normal;
+	color: #a6b7bf;
+}
+
+a.blog-index-author {
+	font: 14px montserrat, normal;
+	color: #a6b7bf;
+	text-decoration: underline;
+}
+
 body {
 	color: #5a5f61;
 	font: 16px Lato, sans-serif;

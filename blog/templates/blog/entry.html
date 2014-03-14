@@ -51,15 +51,22 @@
 
 		{% block pagination%}
 			<div class="row pagination">
-				{% if entry.previous != None %}
+				{% if entry.previous and entry.next %}
 					<div class="large-6 columns text-left">
 						<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
 					</div>
-				{% endif %}
-				{% if entry.next != None %}
 					<div class="large-6 columns text-right">
-						<p><a href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
+						<p><a class="blog-pagination-right"href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
 					</div>
+				{% elif entry.previous and entry.next == None %}
+					<div class="large-12 columns text-left">
+						<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
+					</div>
+				{% elif  entry.previous == None and entry.next %}
+					<div class="large-12 columns text-right">
+						<p><a class="blog-pagination-right"href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
+					</div>
+				{% else %}
 				{% endif %}
 			</div>
 		{% endblock %}
