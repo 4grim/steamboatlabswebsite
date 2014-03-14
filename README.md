@@ -13,5 +13,5 @@ Embedded images are implemented with square brackets, the image indicator of 'im
 
 Embedding Links
 ---------------
-Embedded links are implemented with square brackets surrounding the text associated, followed with parentheses including the link and an optional reference name. As an example, a link to wikipedia would look like this: [Wikipedia](http://en.wikipedia.org/ "Wikipedia").
+Embedded links are implemented with square brackets surrounding the text associated, followed with parentheses including the link and an optional reference name. As an example, a link to wikipedia would look like this: \[Wikipedia\]\(http://en.wikipedia.org/ "Wikipedia"\).
 
