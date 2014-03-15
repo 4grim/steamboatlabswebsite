@@ -9,7 +9,12 @@ def get_context_data():
 	categories = Category.objects.all()
 	authors = Author.objects.all()
 	tags = Tag.objects.all()
-	context = {'entries': entries, 'categories': categories, 'authors': authors, 'tags': tags}
+	context = {
+		'entries': entries, 
+		'categories': categories, 
+		'authors': authors, 
+		'tags': tags,
+	}
 	return context
 		
 # main blog index
@@ -56,6 +61,7 @@ def entry(request, slug):
 def index_of_category(request, category_id):
 	context = get_context_data()
 	related_posts = Entry.objects.filter(categories__id=category_id)
+	entry = Entry.objects.filter
 	paginator = Paginator(related_posts, 3)
 	page = request.GET.get('page')
 	try:
@@ -64,7 +70,10 @@ def index_of_category(request, category_id):
 		posts = paginator.page(1)
 	except EmptyPage:
 		posts = paginator.page(pagintor.num_pages)
-	context_add = {'related_posts': related_posts, 'posts': posts}
+	context_add = {
+		'related_posts': related_posts, 
+		'posts': posts,
+	}
 	context.update(context_add)
 	return render(request, 'blog/category_page.html', context)
 

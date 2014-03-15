@@ -59,6 +59,10 @@ class Entry(models.Model):
 		if entries.count():
 			return entries[0]
 
+	def featured_image(self):
+		featured_image = self.images.filter(feature_image=True)
+		return featured_image
+
 	@property
 	def text_to_html(self):
 		regex = r"\[img:([a-zA-Z0-9-_]+)\]"

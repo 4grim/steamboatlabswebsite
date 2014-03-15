@@ -5,9 +5,33 @@
 {% block content %}
 <div class="row blog-index">
 	{% if related_posts %}
-		{% for post in related_posts %}
-			{% include 'blog/posted_entry_index.html' with entry=post %}
+		{% for entry in related_posts %}
+			<div class="row blog-entry">
+				{% include 'blog/posted_entry_index.html' %}
+			</div>
+			<br>
 		{% endfor %}
+		{% block pagination %}
+			<div class="row pagination">
+				{% if posts.has_previous %}
+					<div class="large-4 columns text-left">
+						<p><a href="?page={{ posts.previous_page_number }}">Previous</a></p>
+					</div>
+					<div class="large-4 columns text-center">
+						<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
+					</div>
+				{% else %}
+					<div class="large-4 large-push-4 columns text-center">
+						<p>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</p>
+					</div>
+				{% endif %}
+				<div class="large-4 columns text-right">
+					{% if posts.has_next %}
+						<p><a href="?page={{ posts.next_page_number }}">Next</a></p>
+					{% endif %}
+				</div>
+			</div>
+		{% endblock %}
 	{% else %}
 		<p class="text-center">This author currently has no entries published.</p>
 	{% endif %}

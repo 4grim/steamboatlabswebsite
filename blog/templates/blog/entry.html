@@ -5,77 +5,32 @@
 {% block content %}
 
 <section>
-	<div class="row blog-entry">
-		<div class="row blog-entry-header">			
-			<div class="small-12 columns text-center">
-				<h2 class="blog-entry-title">{{ entry.title|upper }}</h2>
-				<p class="blog-entry-author">By {{ entry.author }} on {{ entry.post_date|date:"F j, Y" }}</p>
-			</div>
-		</div>
-
-		{% for image in featured_image %}
-			<div class="row blog-feature-image">
-				<div class="large-12 columns">
-				<a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
+	<div class="row blog-index">
+		<div class="row blog-entry">
+			{% include 'blog/posted_entry_index.html' %}
+			
+			{% block pagination%}
+				<div class="row pagination">
+					{% if entry.previous and entry.next %}
+						<div class="large-6 columns text-left">
+							<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
+						</div>
+						<div class="large-6 columns text-right">
+							<p><a class="blog-pagination-right"href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
+						</div>
+					{% elif entry.previous and entry.next == None %}
+						<div class="large-12 columns text-left">
+							<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
+						</div>
+					{% elif  entry.previous == None and entry.next %}
+						<div class="large-12 columns text-right">
+							<p><a class="blog-pagination-right"href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
+						</div>
+					{% else %}
+					{% endif %}
 				</div>
-			</div>
-		{% endfor %}
-
-		<div class="row blog-entry-categories">
-			<div class="large-12 columns text-center">
-				<p>Categories |
-					{% for category in entry.categories.filter %}
-						<a class="blog-entry-category" href="{% url 'index_of_category' category.id %}">{{ category }}</a>
-					{% endfor %}
-				</p>
-			</div>
+			{% endblock %}
 		</div>
-
-		<div class="row blog-entry-content">
-			<div class="large-8 large-offset-2 columns blog-entry-body">
-				{{ entry.text_to_html|safe }}
-
-				<div class="row">
-					<div class="large-12 columns blog_files">
-						{% for file in entry.files.filter %}
-							<a href="{{ file.entry_file.url }}"><img src="{{ file.entry_file.url }}" alt="{{ file.title }}"></a>
-						{% endfor %}
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="large-12 columns text-center">
-						<p>Tags|
-							{% for tag in entry.tags.filter %}
-								<a class="blog-entry-tag" href="{% url 'index_of_tag' tag.slug %}">#{{ tag }}</a>
-							{% endfor %}
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		{% block pagination%}
-			<div class="row pagination">
-				{% if entry.previous and entry.next %}
-					<div class="large-6 columns text-left">
-						<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
-					</div>
-					<div class="large-6 columns text-right">
-						<p><a class="blog-pagination-right"href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
-					</div>
-				{% elif entry.previous and entry.next == None %}
-					<div class="large-12 columns text-left">
-						<p><a href="{% url 'entry' entry.previous.slug %}">Previous Post - {{ entry.previous.title }}</a></p>
-					</div>
-				{% elif  entry.previous == None and entry.next %}
-					<div class="large-12 columns text-right">
-						<p><a class="blog-pagination-right"href="{% url 'entry' entry.next.slug %}">Next Post - {{ entry.next.title }}</a></p>
-					</div>
-				{% else %}
-				{% endif %}
-			</div>
-		{% endblock %}
 	</div>
 </section>
 
