@@ -24,7 +24,7 @@ div.blog-entry-content p:last-child {
 h1.blog-title {
 	color: #a6b7bf;
 	font: 52px montserrat, normal;
-	padding-top: 50px;
+	padding-top: 130px;
 	padding-bottom: 10px;
 }
 
@@ -167,9 +167,11 @@ ol {
 
 blockquote {
 	color: #a6b7bf;
-	font: 16px montserrat, normal;
+	font: bold 16px montserrat, normal;
 	padding-top: 22px;
 	padding-bottom: 22px;
+	border-left: 6px solid #a6b7bf;
+	margin-left: 20px;
 }
 
 #blog-lower-nav {

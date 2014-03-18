@@ -6,6 +6,11 @@ img.sb_logo {
 	width: 32px;
 }
 
+li.name {
+	position: relative;
+	padding-top: 7px;
+}
+
 #big-screen {
 	background: url(/static/projects/Hack_Day2.png) #074e68;
 	height: 650px;
@@ -14,18 +19,17 @@ img.sb_logo {
 	padding: 100px 20px 0 20px;
 }
 
+#main-description {
+	background-color: #ffffff;
+	height: 350px;
+	position: relative;
+	padding: 100px 20px 0 20px;
+}
+
 #feature_projects {
 	text-align: left;
 	position: relative;
 	padding: 50px 20px;
-}
-
-p.company-title {
-	font: 14px helvetica, sans-serif;
-}
-
-a.company-contact {
-	font: 14px helvetica, sans-serif;
 }
 
 .whitey, .head-links a {
@@ -45,4 +49,66 @@ a.company-contact {
 [data-magellan-expedition] {
 	background: transparent;
 	padding: 0;
+}
+
+body {
+	color: #5a5f61;
+	font: 16px Lato, sans-serif;
+}
+
+p {
+	color: #5a5f61;
+	font: 16px Lato, sans-serif;
+}
+
+a {
+	color: #065a84;
+	font: 16px Lato, sans-serif;
+}
+
+h1 {
+	color: #a6b7bf;
+	font: 60px montserrat, normal;
+}
+
+h2 {
+	color: #a6b7bf;
+	font: 48px montserrat, normal;
+}
+
+h3 {
+	color: #a6b7bf;
+	font: 36px montserrat, normal;
+}
+
+h4 {
+	color: #a6b7bf;
+	font: 30px montserrat, normal;
+}
+
+h5 {
+	color: #a6b7bf;
+	font: 24px montserrat, normal;
+}
+
+h6 {
+	color: #a6b7bf;
+	font: 18px montserrat, normal;
+}
+
+li {
+	color: #a6b7bf;
+	font: 15px montserrat, normal;
+}
+
+ol {
+	color: #a6b7bf;
+	font: 15px montserrat, normal;
+}
+
+blockquote {
+	color: #a6b7bf;
+	font: 16px montserrat, normal;
+	padding-top: 22px;
+	padding-bottom: 22px;
 }
