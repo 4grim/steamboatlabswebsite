@@ -65,6 +65,8 @@ p.blog-entry-author {
 
 div.blog-feature-image {
 	width: 960px;
+	height: 500px;
+	overflow: hidden;
 }
 
 div.blog-entry-body {
