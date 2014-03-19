@@ -19,7 +19,7 @@ table tr td {
 .codehilite .g { color: #5a5f61 } /* Generic */
 .codehilite .k { color: #065a84; font-weight: normal } /* Keyword */
 .codehilite .l { color: #5a5f61 } /* Literal */
-.codehilite .n { color: #5a5f61 } /* Name */
+.codehilite .n { color: #065a84 } /* Name */
 .codehilite .o { color: #8897aa; font-weight: normal } /* Operator */
 .codehilite .x { color: #5a5f61 } /* Other */
 .codehilite .p { color: #8897aa; font-weight: normal } /* Punctuation */
