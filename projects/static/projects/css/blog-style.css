@@ -208,6 +208,13 @@ div.codehilite {
 	margin: 0px;
 }
 
+iframe {
+	height: 315px;
+	width: 500px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
 /* Swiftype Search Box */
 
 body form input.st-search-input {
