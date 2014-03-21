@@ -10,11 +10,19 @@ def index(request):
 
 	# Imports any testimonials given by clients
 	testimonials = []
+	logos = []
 	for client in clients:
 		if client.testimonial:
 			testimonials.append(client.testimonial)
+		if client.company_logo:
+			logos.append(client.company_logo)
 
-	context = {'projects_featured_list': projects_featured_list, 'clients': clients, 'testimonials': testimonials}
+	context = {
+		'projects_featured_list': projects_featured_list, 
+		'clients': clients, 
+		'testimonials': testimonials, 
+		'logos': logos,
+		}
 
 	return render(request, 'projects/index.html', context)
 

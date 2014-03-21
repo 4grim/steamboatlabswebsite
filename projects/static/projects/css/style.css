@@ -2,8 +2,20 @@ div.testimonials {
 	font-style: italic;
 }
 
+ul.title-area {
+	padding-left: 8px;
+}
+
 img.sb_logo {
 	width: 32px;
+}
+
+div.sb_name {
+	float: right;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 li.name {
@@ -14,101 +26,147 @@ li.name {
 #big-screen {
 	background: url(/static/projects/Hack_Day2.png) #074e68;
 	height: 650px;
-	text-align: left;
+	width: auto;
+	text-align: center;
 	position: relative;
 	padding: 100px 20px 0 20px;
+}
+
+#big-screen h2 {
+	padding-top: 90px;
+	padding-bottom: 60px;
+	text-align: center;
 }
 
 #main-description {
 	background-color: #ffffff;
-	height: 350px;
 	position: relative;
-	padding: 100px 20px 0 20px;
+	padding: 75px 20px 75px 20px;
+}
+
+div.section-title {
+	padding-bottom: 30px;
+}
+
+div.index-capabilities-title h5{
+	height: 75px;
+	color: #29353b;
+	padding-top: 20px;
+}
+
+#team {
+	background: url(/static/projects/applauding_people2.jpg) #074e68;
+	height: 400px;
+	width: auto;	
+	padding-top: 120px;
+}
+
+#team a {
+	border-width: 1px;
+	border-color: #5A5F61;
+	border-style: solid;
+	border-radius: 8px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	color: #5A5F61;
+}
+
+#team div.team-button {
+	margin-top: 30px;
+}
+
+#clients {
+	height: 250px;
+	padding-top: 70px;
+	padding-bottom: 22px;
 }
 
 #feature_projects {
+	background: url(/static/projects/placeit.png) #074e68;
 	text-align: left;
 	position: relative;
 	padding: 50px 20px;
 }
 
 .whitey, .head-links a {
-	color: #fff;
+color: #fff;
 }
 
 .top-bar, .top-bar a, .top-bar li {
 	color: #333 !important;
 	background: #fff !important;
-	font: 16px helvetica, sans-serif;
+	font: 18px helvetica, sans-serif;
 }
 
 #big-screen h1 {
-	font-size: 6.75rem;
+font-size: 6.75rem;
 }
 
 [data-magellan-expedition] {
-	background: transparent;
-	padding: 0;
+background: transparent;
+padding: 0;
 }
 
 body {
-	color: #5a5f61;
-	font: 16px Lato, sans-serif;
+color: #5a5f61;
+font: 16px Lato, sans-serif;
 }
 
 p {
-	color: #5a5f61;
-	font: 16px Lato, sans-serif;
+color: #5a5f61;
+font: 16px Lato, sans-serif;
 }
 
 a {
-	color: #065a84;
-	font: 16px Lato, sans-serif;
+color: #065a84;
+font: 16px Lato, sans-serif;
 }
 
 h1 {
-	color: #a6b7bf;
-	font: 60px montserrat, normal;
+color: #a6b7bf;
+font: 60px montserrat, normal;
 }
 
 h2 {
-	color: #a6b7bf;
-	font: 48px montserrat, normal;
+color: #a6b7bf;
+font: 48px montserrat, normal;
 }
 
 h3 {
-	color: #a6b7bf;
-	font: 36px montserrat, normal;
+color: #a6b7bf;
+font: 36px montserrat, normal;
 }
 
 h4 {
-	color: #a6b7bf;
-	font: 30px montserrat, normal;
+color: #a6b7bf;
+font: 30px montserrat, normal;
 }
 
 h5 {
-	color: #a6b7bf;
-	font: 24px montserrat, normal;
+color: #a6b7bf;
+font: 24px montserrat, normal;
 }
 
 h6 {
-	color: #a6b7bf;
-	font: 18px montserrat, normal;
+color: #a6b7bf;
+font: 18px montserrat, normal;
 }
 
 li {
-	color: #a6b7bf;
-	font: 15px montserrat, normal;
+color: #a6b7bf;
+font: 15px montserrat, normal;
 }
 
 ol {
-	color: #a6b7bf;
-	font: 15px montserrat, normal;
+color: #a6b7bf;
+font: 15px montserrat, normal;
 }
 
 blockquote {
-	color: #a6b7bf;
-	font: 16px montserrat, normal;
-	padding-top: 22px;
-	padding-bottom: 22px;
+color: #a6b7bf;
+font: 16px montserrat, normal;
+padding-top: 22px;
+padding-bottom: 22px;
 }

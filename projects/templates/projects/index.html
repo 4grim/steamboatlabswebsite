@@ -4,76 +4,145 @@
 
 {% block body_block %}
 
-	<!-- General Content Section -->
-	<section id="big-screen">
-		<div class="row centered-text">
-
-			<div class="large-9 small-9 columns text-center whitey medium-centered">
-				<h1 class="whitey">Mobile + Web</h1>
-				<h2 class="whitey">We make products and offer remedies.</h2>
-				<p class="whitey">We specialize in building products from the ground up -- be it the MVP for your new startup or the back-office app you need to streamline your companies workflow.</p>
-			</div>
-		</div>
-	</section>
-	
-	<section id="main-description">
-		<div class="row centered-text">
-			<div class="large-12 small-12 columns text-center">
-				<h1>Our amazing team has experience in building MVP to Full Production.</h1>
-			</div>
-			<div class="large-3 small-3 columns text-center">
-				<h5>Mobile (iOS/Android)</h5>
-				<img src='{% static "projects/Slice1@2x.png" %}'/>
-			</div>
-			<div class="large-3 small-3 columns text-center">
-				<h5>Web Development</h5>
-				<img src='{% static "projects/Slice2@2x.png" %}'/>
-			</div>
-			<div class="large-3 small-3 columns text-center">
-				<h5>Landing Pages</h5>
-				<img src='{% static "projects/Slice3@2x.png" %}'/>
-			</div>
-			<div class="large-3 small-3 columns text-center">
-				<h5>Back-end/Services</h5>
-				<img src='{% static "projects/Slice4@2x.png" %}'/>
-			</div>
-		</div>
-	</section>
-
-	<section id="feature_projects">
-		<div class="row centered-text">
-			<div class="large-12 small-12 columns text-center">
-					<h1>Featured Projects</h1>
-			</div>
-			<div class="small-12 columns text-center">
-				<ul class="example-orbit-content" data-orbit data-orbit data-options="slide_number:false;navigation_arrows:false;">
-					{% for project in projects_featured_list %}
-					<li data-orbit-slide="headline-1">
-					    <a href="{% url 'project_page' project.id %}">
-					    	<h2>{{ project.title }}</h2>
-					      	<h3>{{ project.technologies }}</h3>
-					    </a>
-
-					    {% if project.company_logo %}
-						<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
-						{% endif %}
-					  </li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
-	</section>
-
-	<section id="credentials">
-		<div class="row">
-			{% if testimonials %}	
-				<div class="large-12 small-12 columns testimonials">
-					{% for testimonial in testimonials %}
-						<blockquote>{{ testimonial }}</blockquote>
-					{% endfor %}
+<!-- General Content Section -->
+<section id="big-screen">
+	<div class="row centered-text">
+		<div class="large-12 small-12 columns whitey text-center">
+			<div class="row">
+				<div class="large-12 small-12">
+					<h2 class="whitey">Imagine. Design. Develop.</h2>
 				</div>
-			{% endif %}
+			</div>
+			<div class="row">
+				<div class="large-8 large-offset-2 small-8 small-offset-2">
+					<h6 class="whitey">We specialize in building products from the ground up -- be it the MVP for your new startup or the back-office app you need to streamline your companies workflow.</h6>
+				</div>
+			</div>
 		</div>
-	</section>
+	</div>
+</section>
+
+<section id="main-description">
+	<div class="row centered-text">
+		<div class="section-title large-12 small-12 columns text-center">
+			<h3>Our amazing team is experienced in building from MVP to Production.</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-3 medium-6 small-12 columns text-center">
+			<div class="row">
+				<div class="index-capabilities-title large-12 small-12 columns">
+					<h5>Mobile (iOS/Android)</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 small-12 columns">
+					<img src='{% static "projects/Slice1@2x.png" %}'/>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-6 small-12 columns text-center">
+			<div class="row">
+				<div class="index-capabilities-title large-12 small-12 columns">
+					<h5>Web Development</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 small-12 columns">
+					<img src='{% static "projects/Slice2@2x.png" %}'/>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-6 small-12 columns text-center">
+			<div class="row">
+				<div class="index-capabilities-title large-12 small-12 columns">
+					<h5>Landing Pages</h5>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="large-12 small-12 columns">
+					<img src='{% static "projects/Slice3@2x.png" %}'/>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-6 small-12 columns text-center">
+			<div class="row">
+				<div class="index-capabilities-title large-12 small-12 columns">
+					<h5>Back-end Services</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 small-12 columns">
+					<img src='{% static "projects/Slice4@2x.png" %}'/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="team">
+	<div class="row">
+		<div class="12-large 12-small columns">
+			<div class="row">
+				<div class="6-large 6-small columns">
+					<h3>Who are we?</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="6-large 6-small columns">
+					<p>Our philosophy is to be super-hardcore.</p>
+					<p>PS: We totally are</p>
+					<div class="team-button"><a href="#">MEET THE TEAM</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="clients">
+	<div class="row">
+		<div class="12-columns large 12-columns small">
+			{% for logo in logos %}
+				<img src="{{ logo.url }}" width="80" height="80">
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section id="feature_projects">
+	<div class="row centered-text">
+		<div class="large-12 small-12 columns text-center">
+			<h1>Featured Projects</h1>
+		</div>
+		<div class="small-12 columns text-center">
+			<ul class="example-orbit-content" data-orbit data-orbit data-options="slide_number:false;navigation_arrows:false;">
+			{% for project in projects_featured_list %}
+				<li data-orbit-slide="headline-1">
+					<a href="{% url 'project_page' project.id %}">
+						<h2>{{ project.title }}</h2>
+						<h3>{{ project.technologies }}</h3>
+					</a>
+					{% if project.company_logo %}
+						<img src="{{ project.company_logo.url }}" height="100" width="100"><br>
+					{% endif %}
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section id="credentials">
+<div class="row">
+{% if testimonials %}
+<div class="large-12 small-12 columns testimonials">
+{% for testimonial in testimonials %}
+<blockquote>{{ testimonial }}</blockquote>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+</section>
 
 {% endblock %}

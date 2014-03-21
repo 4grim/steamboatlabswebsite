@@ -11,7 +11,9 @@
 
 <link rel="stylesheet" href="{% static 'projects/css/foundation.css' %}" />
 <link rel="stylesheet" href="{% static 'projects/css/style.css' %}" />
-<script src="{% static 'projects/js/vendor/modernizr.js' %}"></script> 
+<script src="{% static 'projects/js/vendor/modernizr.js' %}"></script>
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
 
 {% block header %}{% endblock %}
 
@@ -21,7 +23,8 @@
     <nav class="top-bar" data-topbar data-magellan-expedition="fixed">
         <ul class="title-area">
             <li class="name">
-              <h1><a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' class="sb_logo" /> Steamboat Labs</a></h1>
+              <a href="{% url 'index' %}"><img src='{% static "projects/site_logo.png" %}' alt='Company Logo' class="sb_logo" /></a>
+              <div class="sb_name">SteamboatLabs</div>
             </li>
             <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
         </ul>
